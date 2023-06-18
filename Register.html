@@ -1,28 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="Register.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Register.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <title>Register</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav>
-        <h1>Welcome to Money Booster</h1>
+      <h1>Welcome to Money Booster</h1>
     </nav>
     <div class="form">
-        <label for="">Enter your name  </label>
-        <input type="text" placeholder="Please enter your name" required>
-        <label for="">Enter your email id  </label>
-        <input type="email" placeholder="Please enter your email id" required>
-        <label for="">Enter your mobile number </label>
-        <input type="tel" placeholder="+91  10-digit mobile number" required>
-        <label for="">Create your password  </label>
-        
-        <input  placeholder="Please create your password" type="text" required>
-        <button onclick='location.href="index.html"'>Register</button>
-         <p>Already have an account?<span> <a href="login.html">Login Now</a></span></p>
+      <label for="">Enter your name </label>
+      <input
+        id="name"
+        type="text"
+        placeholder="Please enter your name"
+        required
+      />
+      <label for="">Enter your email id </label>
+      <input
+        id="email"
+        type="email"
+        placeholder="Please enter your email id"
+        required
+      />
+      <label for="">Enter your mobile number </label>
+      <input
+        id="phone"
+        type="number"
+        placeholder="+91  10-digit mobile number"
+        required
+      />
+      <label for="">Create your password </label>
+      <div id="password-input">
+        <input
+          id="pass"
+          placeholder="Please create your password"
+          type="password"
+          required
+        />
+        <i
+          class="toggle-password fas fa-eye"
+          onclick="togglePasswordVisibility()"
+        ></i>
+      </div>
+      <button id="register">Register</button>
+      <p>
+        Already have an account?<span>
+          <a href="./login.html">Login Now</a></span
+        >
+      </p>
     </div>
-</body>
+  </body>
 </html>
+
+<script>
+  document.getElementById("register").addEventListener("click", function () {
+    const emailInput = document.getElementById("email");
+    const email = emailInput.value;
+
+    // Regular expression for email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    const numberInput = document.getElementById("phone");
+    const number = numberInput.value;
+
+    if (number.length !== 10) {
+      alert("Please enter a 10-digit number.");
+      return;
+    }
+    const data = {
+      email: document.getElementById("email").value,
+      password: document.getElementById("pass").value,
+      name: document.getElementById("name").value,
+      phone: document.getElementById("phone").value,
+    };
+    fetch("http://localhost:3330/api/v1/userDetails/postUserDetails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((responseData) => {
+        // Handle the response data
+        if (responseData.message == "Saved user details") {
+          alert("Registration Successfull");
+          window.location.href = "index.html";
+        } else {
+          alert("User Already Registered");
+        }
+      })
+      .catch((error) => {
+        // Handle any errors
+        console.error(error);
+      });
+  });
+
+  function togglePasswordVisibility() {
+    const passwordInput = document.getElementById("pass");
+    const eyeIcon = document.querySelector(".toggle-password");
+
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      eyeIcon.classList.remove("fa-eye");
+      eyeIcon.classList.add("fa-eye-slash");
+    } else {
+      passwordInput.type = "password";
+      eyeIcon.classList.remove("fa-eye-slash");
+      eyeIcon.classList.add("fa-eye");
+    }
+  }
+</script>

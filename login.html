@@ -1,23 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="login.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
     <title>Money Monster | Login</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav>
-        <h1>Welcome to Money Booster</h1>
+      <h1>Welcome to Money Booster</h1>
     </nav>
     <div class="form">
-        <label for="">Enter your mobile number </label>
-        <input  type="tel" placeholder="+91  10-digit mobile number" required>
-        <label for="">Enter your password </label>
-        <input type="text" placeholder="Please enter your password" required>
-        <button onclick='location.href="index.html"'>Login</button>
-        <a href="Register.html">Register Now</a>
+      <label for="">Enter your email id </label>
+      <input
+        id="email"
+        type="email"
+        placeholder="Please enter your email id"
+        required
+      />
+      <label for="">Enter your password </label>
+      <div id="password-input">
+        <input
+          id="pass"
+          placeholder="Please enter your password"
+          type="password"
+          required
+        />
+        <i
+          class="toggle-password fas fa-eye"
+          onclick="togglePasswordVisibility()"
+        ></i>
+      </div>
+      <button id="login">Login</button>
+      <a href="Register.html">Register Now</a>
     </div>
-</body>
+  </body>
 </html>
+
+<script>
+  document.getElementById("login").addEventListener("click", function () {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("pass").value;
+
+    fetch(
+      `http://localhost:3330/api/v1/userDetails/getUser?email=${email}&password=${password}`
+    )
+      .then((response) => response.json())
+      .then((responseData) => {
+        console.log(responseData);
+        if (responseData.success) {
+          alert("Login successful");
+          window.location.href = "index.html";
+        } else {
+          alert("Invalid Email Id or Password");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  });
+
+  function togglePasswordVisibility() {
+    const passwordInput = document.getElementById("pass");
+    const eyeIcon = document.querySelector(".toggle-password");
+
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      eyeIcon.classList.remove("fa-eye");
+      eyeIcon.classList.add("fa-eye-slash");
+    } else {
+      passwordInput.type = "password";
+      eyeIcon.classList.remove("fa-eye-slash");
+      eyeIcon.classList.add("fa-eye");
+    }
+  }
+</script>
