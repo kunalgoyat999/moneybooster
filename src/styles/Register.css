@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+  }
+  nav {
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    /* identical to box height, or 100% */
+  
+    background-color: #fbeeea;
+    height: 15vh;
+    color: #24262c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vh;
+    text-align: center;
+  }
+  .form input,
+  .form button {
+    width: 80%;
+    margin: 5px auto;
+    border-radius: 8px;
+    height: 40px;
+    border: none;
+  }
+  .form input {
+    width: 78%;
+    border: 1px solid #d7d7d7f7;
+    padding-left: 10px;
+    margin-bottom: 2vh;
+    color: #24262c;
+  }
+  .form button {
+    color: white;
+    background: #d7937a;
+  }
+  
+  .form input::placeholder {
+    color: #8a8a8a7d;
+  }
+  .form input:focus {
+    outline: none;
+  }
+  label {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    width: 80%;
+    margin: auto;
+    text-align: left;
+    color: #8a8a8ad4;
+  }
+  .form p {
+    color: #8a8a8a;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 44px;
+  }
+  .form a {
+    color: #24262c;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 44px;
+  }
+  
+  #password-input {
+    position: relative;
+  }
+  
+  #password-input .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 13%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
