@@ -3,6 +3,23 @@ import plan1 from "../assests/plans/1.png"
 import Image from "../assests/Image 3.png";
 
 export default function () {
+
+  fetch(`http://localhost:3330/api/v1/userDetails/getUser?email=${email}&password=${password}`
+  )
+    .then((response) => response.json())
+    .then((responseData) => {
+      console.log(responseData);
+      if (responseData.success) {
+        alert("Login successful");
+        window.location.href = "/index";
+      } else {
+        alert("Invalid Email Id or Password");
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
   return (
     <>
       <nav>
