@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+p {
+  text-align: center;
+}
+button {
+  border: none;
+  background-color: transparent;
+}
+.invite-poster {
+  height: 50vh;
+  padding: 0vh 1vw;
+  padding-top: 3vh;
+  overflow: hidden;
+  /* border: 1px solid red; */
+  background-color: #fbeeea;
+}
+
+.header {
+  display: flex;
+  padding: 10px;
+}
+
+.header button {
+  width: 10%;
+}
+
+.header .invite-text {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.invite-poster .shareImg{
+    flex-grow: 1;
+    text-align: center;
+}
+
+.agent-reward {
+  border: 1px solid grey;
+  background-color: rgba(128, 128, 128, 0.188);
+  border-radius: 8px;
+  width: 90%;
+  font-size: 600;
+  text-align: center;
+  margin: 10vh auto;
+}
+.invite-text {
+  text-align: left;
+  font-size: 2em;
+  font-weight: 550;
+  color: rgba(0, 0, 0, 0.766);
+  line-height: 0px;
+}
+.agent-reward > p:first-child {
+  font-size: 0.8em;
+  border-bottom: 1px solid grey;
+  width: fit-content;
+  color: rgba(128, 128, 128, 0.892);
+  margin: 1vh auto;
+}
+.ref-bonus {
+  color: #d7937a;
+}
+
+.invitation-box {
+  display: flex;
+  width: 85%;
+  margin: auto;
+  height: 8vh;
+  border-radius: 8%;
+}
+
+.invitation-box input {
+  width: 70%;
+  border-radius: 10% 0% 0% 10%;
+  border: none;
+  border: 2px solid rgb(12, 12, 12);
+  border-style: dotted;
+  border-right: none;
+  font-size: 1.5em;
+  text-align: center;
+}
+.invitation-box input:focus {
+  outline: none;
+}
+.invitation-box button {
+  background-color: #d7937a;
+  width: 30%;
+  border-radius: 0% 10% 10% 1%;
+}

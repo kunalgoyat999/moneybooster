@@ -31,6 +31,8 @@ export default function Login() {
         .then((responseData) => {
           console.log(responseData);
           if (responseData.success) {
+            console.log(responseData.userDetails.id)
+            localStorage.setItem("userId", responseData.userDetails._id)
             alert("Login successful");
             window.location.href = "/index";
           } else {

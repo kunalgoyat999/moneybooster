@@ -1,7 +1,11 @@
 import Login from "../Pages/Login"
 import Register from "../Pages/Register"
 import Home from "../Pages"
+import Withdraw from "../Pages/Withdraw"
 import { Routes, Route} from 'react-router-dom';
+import Invite from "../Pages/Invite";
+import Payment from "../Pages/Payment";
+import Response from "../Pages/Response";
 
 export default function AllRoutes() {
     return (
@@ -9,8 +13,10 @@ export default function AllRoutes() {
           <Route exact path="/" element={<Login/>} />
           <Route path="/register" element={<Register/>} />
           <Route path="/index" element={<Home/>} />
-          {/* <Route path="/contact" element={Contact} /> */}
-          {/* <Route element={NotFound} /> */}
+          <Route path="/withdraw" element={<Withdraw/>} />
+          <Route path="/invite" element={<Invite/>} />
+          <Route path="/payment" element={<Payment/>} />
+          <Route path="/response" element={<Response/>} />
       </Routes>
     );
   }
