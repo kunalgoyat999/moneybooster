@@ -6,6 +6,7 @@ import { Routes, Route} from 'react-router-dom';
 import Invite from "../Pages/Invite";
 import Payment from "../Pages/Payment";
 import Response from "../Pages/Response";
+import Forgot from "../Pages/Forgot";
 
 export default function AllRoutes() {
     return (
@@ -17,6 +18,7 @@ export default function AllRoutes() {
           <Route path="/invite" element={<Invite/>} />
           <Route path="/payment" element={<Payment/>} />
           <Route path="/response" element={<Response/>} />
+          <Route path="/forgot" element={<Forgot/>} />
       </Routes>
     );
   }

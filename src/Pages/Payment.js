@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {Container, Row, Col, Form, FormLabel, FormControl, Button} from "react-bootstrap"
 import Axios from "axios";
+import uniqid from 'uniqid';
 
 export default function Payment () {
     const [baseUrl] = useState("https://secure.payu.in/_payment");
     const [title] = useState("Payment Page");
     const [key, setKey] = useState("0j7zny");
     const [salt, setSalt] = useState("0bEORCg1");
-    const [txnId, setTxnId] = useState("txn"+ Math.round(Math.random(10000, 99999) * 100000));
+    // const [txnId, setTxnId] = useState("txn"+ Math.round(Math.random(10000, 99999) * 100000));
     const [amount, setAmount] = useState("");
     const [firstName, setFirstName] = useState("");
     const [email, setEmail] = useState("");
@@ -18,13 +19,13 @@ export default function Payment () {
     const [serviceProvider] = useState("PayU");
     const [hash, setHash] = useState("")
     const [temp] = useState("tem")
+
+    let txnId = "ORD" + uniqid();
+
     const calcHash = (e) => {
         let name = e.target.name;
         let value = e.target.value;
 
-        if(name === "txnId"){
-            setTxnId(value);
-        }
         if(name === "amount"){
             setAmount(value);
         }
@@ -46,9 +47,8 @@ export default function Payment () {
         Axios.post("http://localhost:3330/api/v1/userDetails/hash", {key, txnId, amount, productInfo, firstName, email, temp, phone, serviceProvider, salt}).then(res => {
             console.log("ress", res)
             setHash(res.data)
-
         });
-    }, [key, txnId, amount, productInfo, firstName, email, salt])
+    }, [key, amount, productInfo, firstName, phone, email, salt])
 
     return (
         <Container>
@@ -98,7 +98,7 @@ export default function Payment () {
                 </Row>
                 <Row className='pt-sm-2'>
                     <Col sm><Form.Label>Hash</Form.Label></Col>
-                    <Col sm><Form.Control type="text" name="hash" value={hash} readOnly></Form.Control></Col>
+                    <Col sm><Form.Control type="text" name="hash" value={hash} ></Form.Control></Col>
                 </Row>
                 <Row className='pt-sm-2'>
                     <Col sm><Button type="submit">Pay</Button></Col>

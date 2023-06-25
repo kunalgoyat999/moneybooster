@@ -76,6 +76,7 @@ export default function Login() {
             onClick={handleTogglePasswordVisibility}
           />
         </div>
+        <a href="/forgot" className="forgot">Forgot Password</a>
         <button id="login" onClick={handleSubmit}>
           Login
         </button>
