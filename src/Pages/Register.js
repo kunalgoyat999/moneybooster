@@ -8,6 +8,7 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [otp, setOtp] = useState("1234");
   const [phone, setPhone] = useState(0);
 
   const handleInputChange = (event) => {
@@ -60,6 +61,30 @@ export default function Register() {
       });
   };
 
+  const handleEmailOTP = () =>{
+   let OTP = ''
+   for(let i=0; i<4; i++){
+    OTP+= Math.ceil(Math.random()*9);
+    setOtp(pre=>OTP)
+   }
+   console.log(OTP,otp);
+    window.Email.send({
+      Host : "smtp.elasticemail.com",
+      Username : "kunalgoyat999@gmail.com",
+      Password : "E2246E549966D5B8B22167DC592B33FDD579",
+      To : `${email}`,
+      From : "kunalgoyat999@gmail.com",
+      Subject : "Money Booster",
+      Body : `OTP is :- ${OTP}`
+  }).then(
+    (message) => {
+      alert(`email sent`)
+      handleSubmit() 
+    }
+  );
+
+  }
+
   return (
     <>
       <nav>
@@ -108,7 +133,7 @@ export default function Register() {
             onClick={handleTogglePasswordVisibility}
           />
         </div>
-        <button id="register" onClick={handleSubmit}>
+        <button id="register" onClick={handleEmailOTP}>
           Register
         </button>
         <p>
