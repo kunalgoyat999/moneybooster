@@ -41,7 +41,7 @@ input{
     width: 95%;
     margin: 1vh auto;
     font-size: 1.5em;
-    padding: 0.3em;
+    padding: 0.1em 0.2;
 }
 input:focus{
     outline: none;

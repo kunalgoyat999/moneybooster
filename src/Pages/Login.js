@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 // import { useH } from 'react-router-dom';
+import { Input,Stack } from '@chakra-ui/react'
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -53,34 +54,33 @@ export default function Login() {
         <h1>Welcome to Money Booster</h1>
       </nav>
       <div className="form">
+        
+        <Stack spacing={3}>
         <label>Enter your email id </label>
-        <input
-          id="email"
-          type="email"
-          placeholder="Please enter your email id"
-          onChange={handleEmailInput}
-          required
-        />
+         <Input 
+         size='md' 
+         type="email"
+         placeholder="Please enter your email id"
+         onChange={handleEmailInput}
+         required
+         />
+          
         <label>Enter your password </label>
-        <div id="password-input">
-          <input
-            id="pass"
+           <Input
             placeholder="Please enter your password"
             type={showPassword ? "text" : "password"}
             value={password}
             onChange={handleInputChange}
             required
-          />
-          <FontAwesomeIcon
-            icon={showPassword ? faEyeSlash : faEye}
-            onClick={handleTogglePasswordVisibility}
-          />
-        </div>
-        <a href="/forgot" className="forgot">Forgot Password</a>
+           size='sm' />
+          
+
+           <a href="/forgot" className="forgot">Forgot Password</a>
         <button id="login" onClick={handleSubmit}>
           Login
         </button>
         <a href="register">Register Now</a>
+       </Stack>
       </div>
     </>
   );

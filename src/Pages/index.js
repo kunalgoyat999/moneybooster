@@ -12,7 +12,7 @@ import Axios  from "axios";
 
 export default function () {
   let [auth, setAuth] = useState(false)
-
+  
   useEffect(()=> {
     let userId = localStorage.getItem("userId") || "";
 
@@ -40,7 +40,7 @@ export default function () {
       <nav>
         <h1>Money Booster</h1>
       </nav>
-      <Carousel showThumbs={false} showStatus={false} autoPlay={true} interval={2000}>
+      <Carousel showThumbs={false} showStatus={false} autoPlay={true}  interval={2000}  >
       <div>
         <img src={require("../assests/Image 2.png")} alt="Image 1" />
       </div>

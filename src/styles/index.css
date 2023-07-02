@@ -8,7 +8,6 @@ body {
 nav {
   height: 4vh;
   width: 80%;
-  margin: 5%;
   text-align: justify;
 }
 
@@ -23,6 +22,7 @@ nav h1 {
   gap: 10px;
   grid-template-columns: repeat(2, 1fr);
 }
+
 
 .btn-sec button {
   border-radius: 10px;
@@ -42,7 +42,7 @@ nav h1 {
 }
 
 .btn-sec button img {
-  width: 20%;
+ height: 80%;
 }
 
 .container {
@@ -79,6 +79,7 @@ nav h1 {
 
 .plans > div {
   width: 90%;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: end;
