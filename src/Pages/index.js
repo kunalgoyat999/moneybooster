@@ -8,6 +8,7 @@ import groupSvg from '../assests/Group.svg';
 import inviteSvg from "../assests/invite.svg"
 import supportSvg from "../assests/support.svg"
 import withdrawSvg from "../assests/withdraw.svg"
+import Axios  from "axios";
 
 export default function () {
   let [auth, setAuth] = useState(false)
@@ -24,10 +25,11 @@ export default function () {
       .catch((error) => {
         console.error(error);
       });
-  })
+  }, [])
   
   const handleRecharge = () => {
-    window.location.href='https://pmny.in/4r5Q7oueGlw5'
+   
+    window.location.href = "http://localhost:3330/pay"
   }
 
   return (

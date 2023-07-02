@@ -32,12 +32,50 @@ export default function Register() {
       alert("Please enter a 10-digit number.");
       return;
     }
+
+    fetch(
+      `http://localhost:3330/api/v1/userDetails/getUser?email=${email}&password=${password}`
+    ).then((response) => response.json())
+    .then((responseData) => {
+      console.log(responseData);
+      if (responseData.success) {
+        alert("User Already Registered");
+      
+      } else {
+        let OTP = ''
+          for(let i=0; i<4; i++){
+            OTP+= Math.ceil(Math.random()*9);
+            setOtp(pre=>OTP)
+          }
+          console.log(OTP,otp);
+            window.Email.send({
+              Host : "smtp.elasticemail.com",
+              Username : "kunalgoyat999@gmail.com",
+              Password : "E2246E549966D5B8B22167DC592B33FDD579",
+              To : `${email}`,
+              From : "kunalgoyat999@gmail.com",
+              Subject : "Money Booster",
+              Body : `OTP is :- ${OTP}`
+          }).then(
+            (message) => {
+              alert(`email sent`)
+              userRegister() 
+            }
+          );
+      };
+    })
+  }
+    
+
+  const userRegister = () =>{
+
     const data = {
       email: email,
       password: password,
       name: name,
       phone: phone,
     };
+    
     fetch("http://localhost:3330/api/v1/userDetails/postUserDetails", {
       method: "POST",
       headers: {
@@ -59,30 +97,6 @@ export default function Register() {
         // Handle any errors
         console.error(error);
       });
-  };
-
-  const handleEmailOTP = () =>{
-   let OTP = ''
-   for(let i=0; i<4; i++){
-    OTP+= Math.ceil(Math.random()*9);
-    setOtp(pre=>OTP)
-   }
-   console.log(OTP,otp);
-    window.Email.send({
-      Host : "smtp.elasticemail.com",
-      Username : "kunalgoyat999@gmail.com",
-      Password : "E2246E549966D5B8B22167DC592B33FDD579",
-      To : `${email}`,
-      From : "kunalgoyat999@gmail.com",
-      Subject : "Money Booster",
-      Body : `OTP is :- ${OTP}`
-  }).then(
-    (message) => {
-      alert(`email sent`)
-      handleSubmit() 
-    }
-  );
-
   }
 
   return (
@@ -133,7 +147,7 @@ export default function Register() {
             onClick={handleTogglePasswordVisibility}
           />
         </div>
-        <button id="register" onClick={handleEmailOTP}>
+        <button id="register" onClick={handleSubmit}>
           Register
         </button>
         <p>
