@@ -69,8 +69,6 @@ const handleSubmit = (event) => {
   }
 };
 
-  
-
   const handleEmailOTP = () =>{
     const data = {
       email: email,

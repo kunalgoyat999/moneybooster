@@ -15,7 +15,6 @@ export default function () {
   
   useEffect(()=> {
     let userId = localStorage.getItem("userId") || "";
-
     fetch(`http://localhost:3330/api/v1/userDetails/homePage?id=${userId}`
     )
       .then((response) => response.json())
@@ -28,8 +27,8 @@ export default function () {
   }, [])
   
   const handleRecharge = () => {
-   
     window.location.href = "http://localhost:3330/pay"
+    
   }
 
   return (

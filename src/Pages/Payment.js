@@ -43,85 +43,89 @@ export default function Payment () {
             setProductInfo(value);
         }
     }
-    // useEffect(() => {
-    //     Axios.get("http://localhost:3330/pay").then((response) => {
-    //         // console.log(response.data);
-    //         // setHtml(response.data)
-    //     })
-    // }, [])
-
     useEffect(() => {
-        Axios.post("http://localhost:3200/pay", {key, txnid, amount, productinfo, firstname, email, udf1, udf2, udf5, salt}
-        // , {
-        //     headers: {
-        //       'Content-Type': 'application/json',
-        //     }}
-            ).then(res => {
-            console.log("ress", res.data)
-            setHash(res.data)
-        });
-    }, [key, amount, productinfo, firstname, udf2, email, salt])
+        Axios.get("http://localhost:3330/pay").then((response) => {
+            // console.log(response.data);
+            setHtml(response.data)
+        })
+    }, [])
+
+    // useEffect(() => {
+    //     Axios.post("http://localhost:3330/pay", {key, txnid, amount, productinfo, firstname, email, udf1, udf2, udf5, salt}
+    //     // , {
+    //     //     headers: {
+    //     //       'Content-Type': 'application/json',
+    //     //     }}
+    //         ).then(res => {
+    //         console.log("ress", res.data)
+    //         setHash(res.data)
+    //     });
+    // }, [key, amount, productinfo, firstname, udf2, email, salt])
 
     return (
-        <Container>
-            <Form action = {baseUrl} method= "Post">
-                <Row>
-                    <Col sm><h4>{title}</h4></Col>
-                </Row>
-                <Row className='pt-sm-2'>
-                    <Col sm><Form.Label>Key</Form.Label></Col>
-                    <Col sm><Form.Control type="text" name="key" value={key} onChange={calcHash}></Form.Control></Col>
-                </Row>
-                <Row className='pt-sm-2'>
-                    <Col sm><Form.Label>Txn Id</Form.Label></Col>
-                    <Col sm><Form.Control type="" name="txnid" value={txnid} onChange={calcHash}></Form.Control></Col>
-                </Row>
-                <Row className='pt-sm-2'>
-                    <Col sm><Form.Label>Amount</Form.Label></Col>
-                    <Col sm><Form.Control type="text" name="amount" value={amount} onChange={calcHash}></Form.Control></Col>
-                </Row>
-                <Row className='pt-sm-2'>
-                    <Col sm><Form.Label>First Name</Form.Label></Col>
-                    <Col sm><Form.Control type="text" name="firstname" value={firstname} onChange={calcHash}></Form.Control></Col>
-                </Row>
-                <Row className='pt-sm-2'>
-                    <Col sm><Form.Label>Email</Form.Label></Col>
-                    <Col sm><Form.Control type="text" name="email" value={email} onChange={calcHash}></Form.Control></Col>
-                </Row>
-                <Row className='pt-sm-2'>
-                    <Col sm><Form.Label>Phone</Form.Label></Col>
-                    <Col sm><Form.Control type="text" name="udf2" value={udf2} onChange={calcHash}></Form.Control></Col>
-                </Row>
-                <Row className='pt-sm-2'>
-                    <Col sm><Form.Label>Product Info</Form.Label></Col>
-                    <Col sm><Form.Control type="text" name="productinfo" onChange={calcHash}></Form.Control></Col>
-                </Row>
-                <Row className='pt-sm-2'>
-                    <Col sm><Form.Label>Surl</Form.Label></Col>
-                    <Col sm><Form.Control type="text" id="surl" name="surl" value={surl} ></Form.Control></Col>
-                </Row>
-                <Row className='pt-sm-2'>
-                    <Col sm><Form.Label>FURL</Form.Label></Col>
-                    <Col sm><Form.Control type="text" id="furl" name="furl" value={furl}></Form.Control></Col>
-                </Row>
-                <Row className='pt-sm-2'>
-                    <Col sm><Form.Label>Surl</Form.Label></Col>
-                    <Col sm><Form.Control type="text" id="curl" name="curl" value="http://localhost:3200/response.html" ></Form.Control></Col>
-                </Row>
-                <Row className='pt-sm-2'>
-                    <Col sm><Form.Label>Service Provider</Form.Label></Col>
-                    <Col sm><Form.Control type="text" name="service_provider" value={udf5} readOnly></Form.Control></Col>
-                </Row>
-                <Row className='pt-sm-2'>
-                    <Col sm><Form.Label>Hash</Form.Label></Col>
-                    <Col sm><Form.Control type="text" name="hash" value={hash} ></Form.Control></Col>
-                </Row>
-                <Row className='pt-sm-2'>
-                    <Col sm><Button type="submit">Pay</Button></Col>
+        <>
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+       
+        </>
+        // <Container>
+        //     <Form action = {baseUrl} method= "Post">
+        //         <Row>
+        //             <Col sm><h4>{title}</h4></Col>
+        //         </Row>
+        //         <Row className='pt-sm-2'>
+        //             <Col sm><Form.Label>Key</Form.Label></Col>
+        //             <Col sm><Form.Control type="text" name="key" value={key} onChange={calcHash}></Form.Control></Col>
+        //         </Row>
+        //         <Row className='pt-sm-2'>
+        //             <Col sm><Form.Label>Txn Id</Form.Label></Col>
+        //             <Col sm><Form.Control type="" name="txnid" value={txnid} onChange={calcHash}></Form.Control></Col>
+        //         </Row>
+        //         <Row className='pt-sm-2'>
+        //             <Col sm><Form.Label>Amount</Form.Label></Col>
+        //             <Col sm><Form.Control type="text" name="amount" value={amount} onChange={calcHash}></Form.Control></Col>
+        //         </Row>
+        //         <Row className='pt-sm-2'>
+        //             <Col sm><Form.Label>First Name</Form.Label></Col>
+        //             <Col sm><Form.Control type="text" name="firstname" value={firstname} onChange={calcHash}></Form.Control></Col>
+        //         </Row>
+        //         <Row className='pt-sm-2'>
+        //             <Col sm><Form.Label>Email</Form.Label></Col>
+        //             <Col sm><Form.Control type="text" name="email" value={email} onChange={calcHash}></Form.Control></Col>
+        //         </Row>
+        //         <Row className='pt-sm-2'>
+        //             <Col sm><Form.Label>Phone</Form.Label></Col>
+        //             <Col sm><Form.Control type="text" name="udf2" value={udf2} onChange={calcHash}></Form.Control></Col>
+        //         </Row>
+        //         <Row className='pt-sm-2'>
+        //             <Col sm><Form.Label>Product Info</Form.Label></Col>
+        //             <Col sm><Form.Control type="text" name="productinfo" onChange={calcHash}></Form.Control></Col>
+        //         </Row>
+        //         <Row className='pt-sm-2'>
+        //             <Col sm><Form.Label>Surl</Form.Label></Col>
+        //             <Col sm><Form.Control type="text" id="surl" name="surl" value={surl} ></Form.Control></Col>
+        //         </Row>
+        //         <Row className='pt-sm-2'>
+        //             <Col sm><Form.Label>FURL</Form.Label></Col>
+        //             <Col sm><Form.Control type="text" id="furl" name="furl" value={furl}></Form.Control></Col>
+        //         </Row>
+        //         <Row className='pt-sm-2'>
+        //             <Col sm><Form.Label>Surl</Form.Label></Col>
+        //             <Col sm><Form.Control type="text" id="curl" name="curl" value="http://localhost:3200/response.html" ></Form.Control></Col>
+        //         </Row>
+        //         <Row className='pt-sm-2'>
+        //             <Col sm><Form.Label>Service Provider</Form.Label></Col>
+        //             <Col sm><Form.Control type="text" name="service_provider" value={udf5} readOnly></Form.Control></Col>
+        //         </Row>
+        //         <Row className='pt-sm-2'>
+        //             <Col sm><Form.Label>Hash</Form.Label></Col>
+        //             <Col sm><Form.Control type="text" name="hash" value={hash} ></Form.Control></Col>
+        //         </Row>
+        //         <Row className='pt-sm-2'>
+        //             <Col sm><Button type="submit">Pay</Button></Col>
                     
-                </Row>
-            </Form>
-        </Container>
+        //         </Row>
+        //     </Form>
+        // </Container>
     //     <>
     //       <div style={{ maxWidth: '100%', margin: '0 auto', padding: '20px' }}>
     //   <form
