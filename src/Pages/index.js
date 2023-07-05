@@ -12,6 +12,7 @@ import Axios  from "axios";
 
 export default function () {
   let [auth, setAuth] = useState(false)
+  let [userData, setUserData] = useState({});
   
   useEffect(()=> {
     let userId = localStorage.getItem("userId") || "";
@@ -20,6 +21,8 @@ export default function () {
       .then((response) => response.json())
       .then((responseData) => {
         setAuth(true)
+        setUserData(responseData.userDetails)
+
       })
       .catch((error) => {
         console.error(error);
@@ -73,15 +76,15 @@ export default function () {
           <div className="transaction">
             <div>
               <p>assets</p>
-              <p className="assest">0.00</p>
+              <p className="assest">{userData.amountToBeUse === undefined ? 0 : userData.amountToBeUse}</p>
             </div>
             <div>
               <p>Recharge</p>
-              <p className="recharge">1580</p>
+              <p className="recharge">{userData.amounAdded === undefined ? 0 : userData.amounAdded}</p>
             </div>
             <div>
               <p>Income</p>
-              <p className="income">860</p>
+              <p className="income">{userData.amountWithraw === undefined ? 0 : userData.amountWithraw}</p>
             </div>
           </div>
           <div className="plans">

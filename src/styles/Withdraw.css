@@ -37,11 +37,11 @@ p>span{
 }
 input{
     border: none;
-    border-bottom: 0.05em solid grey;
     width: 95%;
     margin: 1vh auto;
-    font-size: 1.5em;
+    font-size: 0.8em;
     padding: 0.1em 0.2;
+    color: rgb(24, 189, 129)
 }
 input:focus{
     outline: none;
@@ -50,6 +50,13 @@ input:focus{
     margin: 3vh auto;
     border-top: 1px solid #DD977F;
     border-bottom: 1px solid #DD977F;
+}
+
+.withdraw-detail{
+    margin: 3vh auto;
+    /* border-top: 1px solid #DD977F; */
+    width: 5;
+    border-bottom: 1px solid #0dce5e;
 }
 
 .withdraw-details>div{

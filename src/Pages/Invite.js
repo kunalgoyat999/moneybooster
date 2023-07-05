@@ -1,14 +1,19 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/Invite.css";
 import backSvg from "../assests/Group 48096980.svg";
 
 export default function Invite() {
     const textRef = useRef(null);
+    const [id, setId] = useState("")
 
     const handleCopyText = () => {
         textRef.current.select();
         document.execCommand("copy");
       };
+      useEffect(()=> {
+        let userId = localStorage.getItem("userId") || "";
+        setId(userId);
+      }, [])
   return (
     <>
      <section className="invite-poster">
@@ -23,7 +28,7 @@ export default function Invite() {
     <section >
         <p>Invitation code</p>
         <div className="invitation-box">
-            <input type="text" value="Vhogsbxhgsx" ref={textRef}/>
+            <input type="text" value={id} ref={textRef}/>
             <button onClick={()=> handleCopyText()}><img src={require("../assests/link_icon.png")}  alt="" /></button>
         </div>
         <p>Share this code to your friends and earn more.</p>
@@ -31,9 +36,9 @@ export default function Invite() {
     <section>
         <div className="agent-reward">
             <p>Agent Rewards</p>
-            <p>Level 1=<span className="ref-bonus">25%</span></p>
-            <p>Level 2=<span className="ref-bonus">3%</span></p>
-            <p>Level 3=<span className="ref-bonus">2%</span></p>
+            <p>Level 1 = <span className="ref-bonus">Rs. 300</span></p>
+            <p>Level 2 = <span className="ref-bonus">Rs. 150</span></p>
+            <p>Level 3 = <span className="ref-bonus">Rs. 50</span></p>
         </div>
     </section>
     </>
