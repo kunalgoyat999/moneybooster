@@ -13,7 +13,7 @@ export default function AllRoutes() {
     return (
       <Routes>
           <Route exact path="/" element={<Login/>} />
-          <Route path="/register" element={<Register/>} />
+          <Route path="/register/:id" element={<Register/>} />
           <Route path="/otp" element={<Otp/>} />
           <Route path="/index" element={<><Home/><Footer /></>} />
           <Route path="/withdraw" element={<Withdraw/>} />

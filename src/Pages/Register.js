@@ -1,23 +1,29 @@
 import "../styles/Register.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { Input} from '@chakra-ui/react'
+import { Input, Text} from '@chakra-ui/react'
 import { useDispatch, useSelector } from "react-redux";
 import { handleOtp, handleRegister } from "../redux/action";
-import { useNavigate} from "react-router-dom"
+import { useNavigate, useParams} from "react-router-dom"
+
 
 export default function Register() {
+  // const { name, age, location } = props;
+  const { id } = useParams();
+  console.log("id", id)
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [otp, setOtp] = useState("1234");
   const [phone, setPhone] = useState("");
+  const [refer, setRefer] = useState("");
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const store = useSelector((state)=>state)
-  console.log(store);
+
+
 
   const handleInputChange = (event) => {
     setPassword(event.target.value);
@@ -32,41 +38,45 @@ export default function Register() {
 // exiating check
 const handleSubmit = (event) => {
   event.preventDefault();
+
+  handleEmailOTP()
+
+  
   
    // Regular expression for email validation
-   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    alert("Please enter a valid email address.");
-    return;
-  }
+  //  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // if (!emailRegex.test(email)) {
+  //   alert("Please enter a valid email address.");
+  //   return;
+  // }
 
-  if (phone.length !== 10) {
-    alert("Please enter a 10-digit number.");
-    return;
-  }
-  if (email.length != 0 && password.length != 0) {
-    fetch(
-      `http://localhost:3330/api/v1/userDetails/getUser?email=${email}&password=${password}`
-    )
-      .then((response) => response.json())
-      .then((responseData) => {
-        console.log(responseData);
-        if (responseData.success) {
-          console.log(responseData.userDetails.id)
-          // localStorage.setItem("userId", responseData.userDetails._id)
-          alert("User Already Registerd");
-          navigate('/')
-        } else {
-          handleEmailOTP()
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  } else {
-    console.log("hewewe");
-    alert("Please Enter All Details");
-  }
+  // if (phone.length !== 10) {
+  //   alert("Please enter a 10-digit number.");
+  //   return;
+  // }
+  // if (email.length != 0 && password.length != 0) {
+  //   fetch(
+  //     `http://localhost:3330/api/v1/userDetails/getUser?email=${email}&password=${password}`
+  //   )
+  //     .then((response) => response.json())
+  //     .then((responseData) => {
+  //       console.log(responseData);
+  //       if (responseData.success) {
+  //         console.log(responseData.userDetails.id)
+  //         // localStorage.setItem("userId", responseData.userDetails._id)
+  //         alert("User Already Registerd");
+  //         navigate('/')
+  //       } else {
+          // handleEmailOTP()
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // } else {
+  //   console.log("hewewe");
+  //   alert("Please Enter All Details");
+  // }
 };
 
   const handleEmailOTP = () =>{
@@ -76,27 +86,72 @@ const handleSubmit = (event) => {
       name: name,
       phone: phone,
     };
-    dispatch(handleRegister(data))
-   let OTP = ''
-   for(let i=0; i<4; i++){
-    OTP+= Math.ceil(Math.random()*9);
-    setOtp(pre=>OTP)
-   }
-   console.log(OTP,otp);
-    window.Email.send({
-      Host : "smtp.elasticemail.com",
-      Username : "kunalgoyat999@gmail.com",
-      Password : "E2246E549966D5B8B22167DC592B33FDD579",
-      To : `${email}`,
-      From : "kunalgoyat999@gmail.com",
-      Subject : "Money Booster",
-      Body : `OTP is :- ${OTP}`
-  }).then(
-    (message) => {
-      dispatch(handleOtp(OTP))
-      navigate('/otp')
-    }
-  );
+    
+    fetch("http://localhost:3330/api/v1/userDetails/postUserDetails", {
+     method: "POST",
+     headers: {
+       "Content-Type": "application/json",
+     },
+     body: JSON.stringify(data),
+   })
+     .then((response) => response.json())
+     .then((responseData) => {
+       // Handle the response data
+       if (responseData.message == "Saved user details") {
+         if(refer !== "ldsfjlsdcak" && id !== "ldsfjlsdcak"){
+          let referData = {
+            id: responseData.id,
+            refered_id: refer || id
+          }
+         fetch(`http://localhost:3330/api/v1/userDetails/refrel`, {
+           method: 'POST',
+           headers: { 'Content-Type': 'application/json'},
+           body: JSON.stringify(referData)
+         }).then((response)=> response.json())
+           .then((responseData)=> {
+             if(responseData.message === "Invalid Refrel Code"){
+              alert(responseData.message)
+             } else if(responseData.message === "Already Exists"){
+               alert(responseData.message)
+             } else {
+               alert("Registration Successfull");
+               window.location.href = "/index";
+             }
+           })
+         } else {
+          alert("Registration Successfull");
+          window.location.href = "/index";
+         }
+       } else {
+         alert("User Already Registered");
+         window.location.href = '/'
+       }
+     })
+     .catch((error) => {
+       // Handle any errors
+       console.error(error);
+     });
+  //   dispatch(handleRegister(data))
+  //  let OTP = ''
+  //  for(let i=0; i<4; i++){
+  //   OTP+= Math.ceil(Math.random()*9);
+  //   setOtp(pre=>OTP)
+  //  }
+  //  console.log(OTP,otp);
+  //   window.Email.send({
+  //     Host : "smtp.elasticemail.com",
+  //     Username : "kunalgoyat999@gmail.com",
+  //     Password : "E2246E549966D5B8B22167DC592B33FDD579",
+  //     To : `${email}`,
+  //     From : "kunalgoyat999@gmail.com",
+  //     Subject : "Money Booster",
+  //     Body : `OTP is :- ${OTP}`
+  // }).then(
+  //   (message) => {
+  //     dispatch(handleOtp(OTP))
+  //     navigate('/otp')
+  //   }
+  // );
 
   }
 
@@ -152,6 +207,16 @@ const handleSubmit = (event) => {
             onClick={handleTogglePasswordVisibility}
           />
         </div>
+        <Text>Do you have refer code?</Text>
+        <Input
+        size='md'
+          id="refer"
+          type="refer"
+          placeholder="Enter your Referel Code"
+          required
+          onChange={(event) => setRefer(event.target.value)}
+          value={refer}
+        />
         <button id="register" onClick={handleSubmit}>
           Register
         </button>
