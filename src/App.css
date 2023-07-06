@@ -31,7 +31,7 @@
 .footer-sticky{
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  background-color: white;
+  background-color: rgb(190, 187, 187);
   position: fixed;
   bottom: 0;
   left: 0;

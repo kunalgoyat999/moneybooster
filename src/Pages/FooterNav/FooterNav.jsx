@@ -5,15 +5,17 @@ export const Footer = () => {
     let FooterArr = [{
         path:'/index',
         title:'Home',
-        icon:'fa-solid fa-house',
+        icon:'fa-solid fa-house'
     },{
         path:'/invite',
         title:'Team',
-        icon:'fa-solid fa-user'
+        icon:'fa-solid fa-user',
+        color: "black"
     },{
         path:'/',
         title:'Profile',
-        icon:'fa-solid fa-user'
+        icon:'fa-solid fa-user',
+        color: "red"
     },
      ]
     return (

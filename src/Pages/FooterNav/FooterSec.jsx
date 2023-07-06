@@ -4,11 +4,16 @@ export const FooterSec = ({ele}) => {
     return (
     <>
     <Link to={ele.path} >
-         <i class={ele.icon} color='#9ca1ab'></i>
+        <div style={{
+             marginLeft: "45px"
+        }}>
+         <i class={ele.icon} style={{color:'black'}}></i>
          
-        <Text>
+         
+        <Text style={{ color: "black" }}>
          {ele.title}
         </Text>
+        </div>
     </Link>
     </>
     )

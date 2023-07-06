@@ -1,4 +1,4 @@
-import { Input, Stack, Button, Center } from "@chakra-ui/react";
+import { Input, Stack, Button, Center, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { userRegister } from "../redux/action";
@@ -35,6 +35,14 @@ export const Otp = () => {
             Verify
           </Button>
         </Stack>
+        <Text> Do you have Refer Code?</Text>
+        <Input
+            placeholder="Enter Your Refer Code"
+            size="md"
+            variant="outline"
+            onChange={(e) => setInput(e.target.value)}
+            value={inputOtp}
+          />
       </div>
     </>
   );
