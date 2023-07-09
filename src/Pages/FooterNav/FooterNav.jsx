@@ -1,28 +1,46 @@
 import { FooterSec } from "./FooterSec"
-
+import { Icon, Link, Text } from "@chakra-ui/react"
+import { IoMdMore } from "react-icons/io";
+import { CgProfile } from "react-icons/cg";
+import { AiFillHome } from "react-icons/ai";
 
 export const Footer = () => {
-    let FooterArr = [{
-        path:'/index',
-        title:'Home',
-        icon:'fa-solid fa-house'
-    },{
-        path:'/invite',
-        title:'Team',
-        icon:'fa-solid fa-user',
-        color: "black"
-    },{
-        path:'/',
-        title:'Profile',
-        icon:'fa-solid fa-user',
-        color: "red"
-    },
-     ]
+
     return (
     <footer className="footer-sticky">
-        {
-         FooterArr.map((ele,i)=>(<FooterSec ele={ele} key={i} />))
-        }
+       <Link to={'/index'}  >
+        <div style={{
+             marginLeft: "45px"
+        }}>
+        <AiFillHome/>
+         
+        <Text>
+        Home
+        </Text>
+        </div>
+    </Link>
+    <Link to={'/invite'}  >
+        <div style={{
+             marginLeft: "45px"
+        }}>
+        <CgProfile/>
+         
+        <Text  >
+        Team
+        </Text>
+        </div>
+    </Link>
+    <Link to={'Profile'}  >
+        <div style={{
+             marginLeft: "45px"
+        }}>
+         
+         <IoMdMore/>
+        <Text >
+        Profile
+        </Text>
+        </div>
+    </Link>
     </footer>
     )
 }

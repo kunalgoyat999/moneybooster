@@ -1,0 +1,133 @@
+.profile-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+  }
+  .profile-page>p{
+    width: 95%;
+    margin:1em auto;
+    text-align: start;
+    font-size: 1.2em;
+    color: rgba(0, 0, 0, 0.85);
+  }
+  .profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+  
+  .profile-name {
+    margin-top: 10px;
+  }
+  
+  .demo-names {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .demo-name {
+    margin: 0 10px;
+  }
+  
+  #button-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+    border-bottom: 1px solid #292a313e;
+    padding-bottom: 1em;
+  }
+  
+  .button-section .profile-button {
+    margin-bottom: 10px;
+    border: 0.3px solid #0000003e;
+    background-color: #EBEBEB;
+    color: #D7937A;
+    width: 95%;
+    border-radius: 0.4em;
+    height: 3em;
+    margin:5px auto;
+    text-align: start;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    display: flex;
+    justify-content: space-between;
+    padding:0 4%;
+    width: 100%;
+    opacity: 0.9;
+    /* padding: 0; */
+  }
+
+  #profile-logout{
+    display: flex;
+    justify-content: flex-start;
+    margin: auto;
+    align-items: center;
+  }
+  .profile-button:hover{
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+  .button-section .profile-button b{
+   width: 80%;
+  }
+
+  .profile_sec{
+    background-color: white;
+    padding-bottom: 3.5em;
+    width: 100vw;
+   border-top-left-radius: 1em;
+   border-top-right-radius: 1em;
+  }
+
+  .demo-names{
+    display: flex;
+  }
+
+  .demo-name{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .demo-name abbr{
+    padding: 5px;
+  }
+
+
+  .demo-names>div:first-child{
+    border-left: none;
+
+  }
+  .demo-names>div{
+    text-align: center;
+    border-left: 1px solid black;
+    padding-left: 5%;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .profile-page {
+      padding: 10px;
+    }
+    
+    .profile-image {
+      width: 150px;
+      height: 150px;
+    }
+    
+    .demo-names {
+      flex-wrap: wrap;
+    }
+    
+    .demo-name {
+      margin: 10px;
+    }
+  }
+  

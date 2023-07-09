@@ -12,7 +12,7 @@ import Axios  from "axios";
 import Modal from 'react-modal';
 
 export default function () {
-  let [auth, setAuth] = useState(false)
+  let [auth, setAuth] = useState(true)
   let [userData, setUserData] = useState({});
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [amount, setAmount] = useState("");

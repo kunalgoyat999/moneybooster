@@ -31,8 +31,10 @@
 .footer-sticky{
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  background-color: rgb(190, 187, 187);
+  background-color: white;
+  border-top: 0.3px solid rgba(0, 0, 0, 0.119);
   position: fixed;
+  border-radius: 1em;
   bottom: 0;
   left: 0;
   color: #9ca1ab;
@@ -46,11 +48,19 @@
   text-align: center;
   width: fit-content;
   cursor: pointer;
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin-left: 10%;
+  color: grey;
 }
 .footer-sticky a p{
   font-size: small;
+  line-height: -5px;
+  /* border: 1px solid red; */
+  margin:0.2em 0;
+  color: grey;
+}
+.footer-sticky a:focus{
+  color: black;
 }
 @keyframes App-logo-spin {
   from {

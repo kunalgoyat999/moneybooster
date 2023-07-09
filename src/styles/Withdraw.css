@@ -72,7 +72,7 @@ input:focus{
 color: #24262C;
 }
 
-button{
+nav button{
     width: 95%;
     border-radius: 10px;
     height: 6vh;
@@ -86,7 +86,7 @@ margin-top: 1vh;
 margin-bottom: 2vh;
 }
 
-button:hover{
+nav button:hover{
     background: #D7937A;
 }
 li{
