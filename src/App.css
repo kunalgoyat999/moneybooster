@@ -59,7 +59,8 @@
   margin:0.2em 0;
   color: grey;
 }
-.footer-sticky a:focus{
+.footer-sticky a:focus,
+.footer-sticky p:focus {
   color: black;
 }
 @keyframes App-logo-spin {

@@ -35,7 +35,7 @@ section>p{
 p>span{
     color: black;
 }
-input{
+.withdraw-detail input{
     border: none;
     width: 95%;
     margin: 1vh auto;
@@ -43,7 +43,7 @@ input{
     padding: 0.1em 0.2;
     color: rgb(24, 189, 129)
 }
-input:focus{
+.withdraw-detail input:focus{
     outline: none;
 }
 .withdraw-details{

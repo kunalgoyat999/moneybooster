@@ -1,6 +1,7 @@
-import { FooterSec } from "./FooterSec"
-import { Icon, Link, Text } from "@chakra-ui/react"
+
+import { Icon, Text } from "@chakra-ui/react"
 import { IoMdMore } from "react-icons/io";
+import {Link } from 'react-router-dom'
 import { CgProfile } from "react-icons/cg";
 import { AiFillHome } from "react-icons/ai";
 
@@ -8,7 +9,7 @@ export const Footer = () => {
 
     return (
     <footer className="footer-sticky">
-       <Link to={'/index'}  >
+       <Link to='/index' onClick={()=>console.log('xcs')}  >
         <div style={{
              marginLeft: "45px"
         }}>
@@ -19,7 +20,7 @@ export const Footer = () => {
         </Text>
         </div>
     </Link>
-    <Link to={'/invite'}  >
+    <Link to={'/team'}  >
         <div style={{
              marginLeft: "45px"
         }}>
@@ -30,7 +31,7 @@ export const Footer = () => {
         </Text>
         </div>
     </Link>
-    <Link to={'Profile'}  >
+    <Link to={'/Profile'} onClick={()=>console.log('xcs')}  >
         <div style={{
              marginLeft: "45px"
         }}>

@@ -10,6 +10,7 @@ import Forgot from "../Pages/Forgot";
 import { Otp } from "../Pages/otp";
 import { Footer } from '../Pages/FooterNav/FooterNav';
 import ProfilePage from "../Pages/Profile/Profile";
+import TeamPage from "../Pages/Team/TeamPage";
 export default function AllRoutes() {
     return (
       <Routes>
@@ -18,6 +19,7 @@ export default function AllRoutes() {
           <Route path="/otp" element={<Otp/>} />
           <Route path="/profile" element={<><ProfilePage/> <Footer /></>} />
           <Route path="/index" element={<><Home/><Footer /></>} />
+          <Route path="/team" element={<><TeamPage/><Footer /></>} />
           <Route path="/withdraw" element={<Withdraw/>} />
           <Route path="/invite" element={<Invite/>} />
           <Route path="/payment" element={<Payment/>} />
