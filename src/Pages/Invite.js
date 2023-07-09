@@ -31,6 +31,11 @@ export default function Invite() {
             <input type="text" value={id} ref={textRef}/>
             <button onClick={()=> handleCopyText()}><img src={require("../assests/link_icon.png")}  alt="" /></button>
         </div>
+        <p>Invitation Link</p>
+        <div className="invitation-box">
+            <input type="text" value={`http://localhost:3000/register/${id}`} ref={textRef} />
+            <button onClick={()=> handleCopyText()}><img src={require("../assests/link_icon.png")}  alt="" /></button>
+        </div>
         <p>Share this code to your friends and earn more.</p>
     </section>
     <section>

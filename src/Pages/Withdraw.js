@@ -20,14 +20,14 @@ export default function Withdraw() {
       }, []);
 
       const withDraw = () => {
-          let currentWithdrawalAmount = userData.amountToBeUse || 0;
+          let currentWithdrawalAmount = userData.amountWithraw || 0;
           let data = {
               email: userData.email,
               amount: withDrawAmount
           }
           console.log("parseInt(withDrawAmount)", parseInt(withDrawAmount), "withDrawAmount", withDrawAmount)
           if(parseInt(currentWithdrawalAmount) - parseInt(withDrawAmount) < 0){
-              alert("Your Assets are less than withdrawal Amount")
+              alert("Your Income is less than withdrawal Amount")
           } else {
             fetch("http://localhost:3330/api/v1/userDetails/withDrawAmount", {
                 method: "POST",
@@ -39,7 +39,8 @@ export default function Withdraw() {
                 .then((response) => response.json())
                 .then((responseData) => {
                   setData(responseData)
-                  window.location.reload();
+                  alert("Withdrawal Successful")
+                  window.location.href = "/index";
                 })
                 .catch((error) => {
                   // Handle any errors

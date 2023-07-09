@@ -23,6 +23,11 @@ export default function Register() {
   const navigate = useNavigate()
   const store = useSelector((state)=>state)
 
+  useEffect(()=> {
+    if(id !== "ldsfjlsdcak"){
+      setRefer(id)
+    }
+  }, [])
 
 
   const handleInputChange = (event) => {

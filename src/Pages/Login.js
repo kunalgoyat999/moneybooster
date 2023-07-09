@@ -73,9 +73,7 @@ export default function Login() {
             onChange={handleInputChange}
             required
            size='sm' />
-          
-
-           <a href="/forgot" className="forgot">Forgot Password</a>
+           {/* <a href="/forgot" className="forgot">Forgot Password</a> */}
         <button id="login" onClick={handleSubmit}>
           Login
         </button>
