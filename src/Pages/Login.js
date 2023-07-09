@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 // import { useH } from 'react-router-dom';
 import { Input,Stack } from '@chakra-ui/react'
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -77,7 +78,7 @@ export default function Login() {
         <button id="login" onClick={handleSubmit}>
           Login
         </button>
-        <a href="register/ldsfjlsdcak">Register Now</a>
+        <Link to="register/ldsfjlsdcak">Register Now</Link>
        </Stack>
       </div>
     </>

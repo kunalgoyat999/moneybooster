@@ -10,6 +10,8 @@ import supportSvg from "../assests/support.svg"
 import withdrawSvg from "../assests/withdraw.svg"
 import Axios  from "axios";
 import Modal from 'react-modal';
+import { Text } from "@chakra-ui/react";
+import{ useNavigate } from 'react-router-dom'
 
 export default function () {
   let [auth, setAuth] = useState(true)
@@ -18,6 +20,7 @@ export default function () {
   const [amount, setAmount] = useState("");
   const [id, setId] = useState("");
   const [planNo, setPlan] = useState("");
+  let navigate = useNavigate();
   useEffect(()=> {
     let userId = localStorage.getItem("userId") || "";
     setId(userId);
@@ -118,7 +121,7 @@ export default function () {
     {
       auth ? 
       <>
-      <nav>
+      <nav id="home_heading">
         <h1>Money Booster</h1>
       </nav>
       <Carousel showThumbs={false} showStatus={false} autoPlay={true}  interval={2000}  >
@@ -139,33 +142,36 @@ export default function () {
             <img style={{width: "12%"}} src={groupSvg} alt="" /> <span>Recharge</span>{" "}
           </button>
           
-          <button onClick={()=> window.location.href="/invite"}>
+          <button onClick={()=> navigate("/invite") }>
             <img style={{width: "12%"}} src={inviteSvg} alt="" /> <span>Invite people</span>
           </button>
           <button onClick={handleButtonClick}>
             <img style={{width: "12%"}} src={supportSvg} alt="" /> <span>Support</span>
           </button>
-          <button onClick={()=> window.location.href="/withdraw"}>
+          <button onClick={()=> navigate("/withdraw")}>
             <img style={{width: "12%"}} src={withdrawSvg} alt="" /> <span>Withdraw</span>
           </button>
         </div>
       </section>
       <section>
         <div className="container">
-          <div className="transaction">
-            <div>
-              <p>Assets</p>
-              <p className="assest">{userData.amountToBeUse === undefined ? 0 : userData.amountToBeUse}</p>
-            </div>
-            <div>
-              <p>Recharge</p>
-              <p className="recharge">{userData.amounAdded === undefined ? 0 : userData.amounAdded}</p>
-            </div>
-            <div>
-              <p>Income</p>
-              <p className="income">{userData.amountWithraw === undefined ? 0 : userData.amountWithraw}</p>
-            </div>
-          </div>
+          <div></div>
+        <div className="demo-names">
+          <div className="demo-name ">
+          <Text as='abbr'>Asset</Text> 
+           <Text as='abbr'>{userData.amountToBeUse === undefined ? 0 : userData.amountToBeUse}</Text>
+        </div>
+        <div className="demo-name ">
+            <Text as='abbr'>Recharge</Text> 
+            <Text as='abbr'>{userData.amounAdded === undefined ? 0 : userData.amounAdded}</Text>
+         </div>
+         <div className="demo-name ">
+            <Text as='abbr'>Income</Text> 
+             <Text as='abbr'>{userData.amountWithraw === undefined ? 0 : userData.amountWithraw}</Text>
+         </div>
+        </div>
+        
+
           <div className="plans">
             <div>
               <img src={plan1} alt="" />

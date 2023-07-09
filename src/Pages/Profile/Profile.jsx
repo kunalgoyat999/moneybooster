@@ -4,12 +4,17 @@ import { Image, Button, ButtonGroup, TagRightIcon, Text  } from '@chakra-ui/reac
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { BiEdit, BiSupport } from "react-icons/bi"; 
 import { PiNoteLight,PiNotepadLight } from "react-icons/pi"; 
-import { SiInformatica } from "react-icons/si"; 
+import { SiInformatica } from "react-icons/si";  
+import { RiLockPasswordLine } from "react-icons/ri";  
+import { CiBank } from "react-icons/ci"; 
 import { MdLogout } from "react-icons/md"; 
+import { useNavigate } from 'react-router-dom';
 
 
 
 export const ProfilePage = () => {
+  let navigate = useNavigate()
+
   const handleButtonClick = (buttonName) => {
     console.log(`Button ${buttonName} clicked!`);
     // You can add your desired logic or actions here
@@ -17,7 +22,7 @@ export const ProfilePage = () => {
 
   return (
     <div className="profile-page">
-         <Text><IoIosArrowBack/> </Text>
+         <Text onClick={()=>navigate(-1)}><IoIosArrowBack/> </Text>
       <div className="profile-section">
         {/* <img src="profile-image.jpg" alt="Profile" className="profile-image" /> */}
         <Image
@@ -26,10 +31,11 @@ export const ProfilePage = () => {
          src='https://bit.ly/dan-abramov'
          alt='Dan Abramov'
         />
-        <h2 className="profile-name">John Doe</h2>
+        <Text fontSize='1.5em' as='b' className="profile-name">John Doe</Text>
       </div>
      
       <div className='profile_sec'>
+        
       <div className="demo-names">
         <div className="demo-name">
         <Text as='abbr'>Asset</Text> 
@@ -46,33 +52,43 @@ export const ProfilePage = () => {
       </div>
 
       <ButtonGroup className="button-section" id='button-section'>
-        <Button leftIcon={<BiEdit />}    className="profile-button"  rightIcon={<IoIosArrowForward />} onClick={() => handleButtonClick(1)}>
+        <Button leftIcon={<BiEdit />}    className="profile-button"  rightIcon={<IoIosArrowForward />} onClick={() => navigate('/personal')}>
         
-          <Text as='b'>Personal details</Text>
+          <Text as='abbr'>Personal details</Text>
         </Button>
         <Button leftIcon={<PiNoteLight />} className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => handleButtonClick(2)}>
             
-          <Text as='b'>Plan Record</Text>
+          <Text as='abbr'>Plan Record</Text>
           
         </Button>
         <Button leftIcon={<PiNotepadLight />}  className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => handleButtonClick(3)}>
             
-          <Text as='b'>Account Record</Text>
+          <Text as='abbr'>Account Record</Text>
           
         </Button>
-        <Button leftIcon={<BiSupport />} className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => handleButtonClick(4)}>
+        <Button leftIcon={<CiBank />} className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => navigate('/my-bank')}>
             
-          <Text as='b'>Security Center</Text>
+          <Text as='abbr'>My Bank</Text>
          
         </Button>
+        <Button leftIcon={<BiSupport />} className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => handleButtonClick(5)}>
+            
+            <Text as='abbr'>Contact Us</Text>
+            
+          </Button>
         <Button leftIcon={<SiInformatica />} className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => handleButtonClick(5)}>
             
-          <Text as='b'>Company Profile</Text>
+          <Text as='abbr'>Company Profile</Text>
           
         </Button>
+        <Button leftIcon={<RiLockPasswordLine />} className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => navigate('/change-password')}>
+            
+            <Text as='abbr'>Change Password</Text>
+            
+          </Button>
         
       </ButtonGroup>
-      <Button id='profile-logout' leftIcon={<MdLogout />}  w='90%' color='#E84B41' lineHeight='4em' colorScheme='teal' variant='ghost'>
+      <Button id='profile-logout' leftIcon={<MdLogout />}  w='90%' color='#E84B41' lineHeight='4em' colorScheme='' variant='ghost'>
       Logout
       </Button>
       </div>

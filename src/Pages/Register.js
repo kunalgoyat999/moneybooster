@@ -2,10 +2,10 @@ import "../styles/Register.css";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { Input, Text} from '@chakra-ui/react'
+import { Button, Input, InputGroup, InputRightElement, Text} from '@chakra-ui/react'
 import { useDispatch, useSelector } from "react-redux";
 import { handleOtp, handleRegister } from "../redux/action";
-import { useNavigate, useParams} from "react-router-dom"
+import { Link, useNavigate, useParams} from "react-router-dom"
 
 
 export default function Register() {
@@ -197,7 +197,7 @@ const handleSubmit = (event) => {
           value={phone}
         />
         <label>Create your password </label>
-        <div id="password-input">
+        {/* <div id="password-input">
           <Input
           size='md'
             id="pass"
@@ -211,7 +211,24 @@ const handleSubmit = (event) => {
             icon={showPassword ? faEyeSlash : faEye}
             onClick={handleTogglePasswordVisibility}
           />
-        </div>
+        </div> */}
+
+        <InputGroup size='md'>
+         <Input
+           pr='4.5rem'
+           type={showPassword ? 'text' : 'password'}
+           placeholder='Enter password'
+         />
+         <InputRightElement width='6.5rem' top='8%'>
+            {/* <Button h='1.75rem' size='sm' onClick={handleTogglePasswordVisibility}>
+               {showPassword ? 'Hide' : 'Show'}
+            </Button> */}
+            <FontAwesomeIcon color="grey"
+            icon={showPassword ? faEyeSlash : faEye}
+            onClick={handleTogglePasswordVisibility}
+          />
+          </InputRightElement>
+        </InputGroup>
         <Text>Do you have refer code?</Text>
         <Input
         size='md'
@@ -228,7 +245,7 @@ const handleSubmit = (event) => {
         <p>
           Already have an account?
           <span>
-            <a href="/">  Login Now</a>
+            <Link to="/">  Login Now</Link>
           </span>
         </p>
       </div>

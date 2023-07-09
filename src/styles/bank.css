@@ -1,0 +1,70 @@
+.bank-page{
+    background: #FCEEE9;
+}
+
+.bank_input_box{
+    background-color: white;
+    padding-top: 2em;
+    margin-bottom:2em;
+    border-top-left-radius: 1.5em;
+    border-top-right-radius: 1.5em;
+
+}
+.bank_input_box>div,
+.bank_input_box>button{
+    width: 90%;
+    margin: auto;
+}
+.bank_input_box>div label{
+    margin: 0px 2%;
+    margin-bottom:var(--chakra-space-2);
+}
+.bank_input_box input{
+    background-color: white;
+}
+.bank-page p{
+    width: 95%;
+    padding:1em auto;
+    text-align: start;
+    font-size: 1.2em;
+    color: rgba(0, 0, 0, 0.85);
+  }
+
+  .bank_input_box>div .css-wo3iht{
+    left: 0;
+    color: #24262C;
+  }
+
+  .bank_input_box>button{
+    background-color: #ABABAB;
+    color: #ffff;
+  }
+  
+  .bank_input_box>button:focus{
+    background-color: #D7937A;
+  }
+
+  .bank-page h1{
+    font-size: 25px;
+    width: 90%;
+    margin: auto;
+    color: #24262ce7;
+    height: 2.4em;
+  }
+  .bank-page>p{
+    font-size: 25px;
+    width: 95%;
+    padding-top: 8%;
+    margin: auto;
+    margin-bottom: 1em;
+    
+  }
+  
+  .bank_input_box .css-g6pte,
+  .bank_input_box input::placeholder{
+    font-size: small;
+  }
+  .bank_input_box input{
+    font-size: medium;
+    color: rgba(0, 0, 0, 0.852);
+  }

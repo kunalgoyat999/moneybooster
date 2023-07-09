@@ -21,7 +21,7 @@ console.log(searchValue);
   return (
     <div className="team-page">
     <Text><IoIosArrowBack/> </Text>
-      <h2>My Team</h2>
+      <h2 >My team</h2>
       <section>
         <div className="search-container">
           

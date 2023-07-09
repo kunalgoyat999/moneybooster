@@ -50,6 +50,7 @@
   cursor: pointer;
   font-size: 1.2em;
   margin-left: 10%;
+  
   color: grey;
 }
 .footer-sticky a p{
@@ -62,6 +63,13 @@
 .footer-sticky a:focus,
 .footer-sticky p:focus {
   color: black;
+}
+.footer-sticky a>div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
 }
 @keyframes App-logo-spin {
   from {

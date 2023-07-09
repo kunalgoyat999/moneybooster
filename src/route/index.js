@@ -11,6 +11,9 @@ import { Otp } from "../Pages/otp";
 import { Footer } from '../Pages/FooterNav/FooterNav';
 import ProfilePage from "../Pages/Profile/Profile";
 import TeamPage from "../Pages/Team/TeamPage";
+import { BankPage } from "../Pages/bank/Bank";
+import { ChangePassword } from "../Pages/ChangePassword";
+import { PersonalDetailsPage } from "../Pages/PersonalDetails";
 export default function AllRoutes() {
     return (
       <Routes>
@@ -21,6 +24,9 @@ export default function AllRoutes() {
           <Route path="/index" element={<><Home/><Footer /></>} />
           <Route path="/team" element={<><TeamPage/><Footer /></>} />
           <Route path="/withdraw" element={<Withdraw/>} />
+          <Route path="/change-password" element={<ChangePassword/>} />
+          <Route path="/my-bank" element={<BankPage/>} />
+          <Route path="/personal" element={<PersonalDetailsPage/>} />
           <Route path="/invite" element={<Invite/>} />
           <Route path="/payment" element={<Payment/>} />
           <Route path="/response" element={<Response/>} />
