@@ -1,0 +1,36 @@
+
+
+    .plan_details{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        justify-content: space-between;
+        height: fit-content;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+      }
+      .plan_details>button{
+        text-align: center;
+        border: none;
+        color: #7B7B7B;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        padding:50px auto;
+        height: 3em;
+      }
+    
+      .plan_details .active_member_sec{
+        color:#D7937A;
+        border-bottom: 1px solid #D7937A;
+      }
+      
+      .plan_last_box{
+        display: flex;
+        flex-direction: column;
+       align-items: center;
+      }
+      .plan_last_box>abbr{
+        color: #7b7b7bea;
+        letter-spacing: 0.2px;
+        font-size: x-small;
+        opacity: 0.7;
+      }

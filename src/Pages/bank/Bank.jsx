@@ -90,7 +90,7 @@ export const BankPage = () => {
          <FormLabel>Enter your withdraw password</FormLabel>
          <Input placeholder='Please enter your withdraw password' onChange={(e)=>{setBankDetails({...bankdetails,withdraw_pass:e.target.value})}}  />
      </FormControl> */}
-     <Button colorScheme='' onClick={handleSubmit}>Button</Button>
+     <Button colorScheme='' onClick={handleSubmit}>Confirm</Button>
      </Stack>
     </div>
   );

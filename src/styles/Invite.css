@@ -3,9 +3,7 @@ body {
   padding: 0;
   font-family: "Inter", sans-serif;
 }
-p {
-  text-align: center;
-}
+
 button {
   border: none;
   background-color: transparent;

@@ -219,11 +219,11 @@ const handleSubmit = (event) => {
            type={showPassword ? 'text' : 'password'}
            placeholder='Enter password'
          />
-         <InputRightElement width='6.5rem' top='8%'>
+         <InputRightElement right='11%' top='8%'>
             {/* <Button h='1.75rem' size='sm' onClick={handleTogglePasswordVisibility}>
                {showPassword ? 'Hide' : 'Show'}
             </Button> */}
-            <FontAwesomeIcon color="grey"
+            <FontAwesomeIcon color="grey" height="10em"
             icon={showPassword ? faEyeSlash : faEye}
             onClick={handleTogglePasswordVisibility}
           />

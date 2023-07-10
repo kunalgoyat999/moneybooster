@@ -14,6 +14,8 @@ import TeamPage from "../Pages/Team/TeamPage";
 import { BankPage } from "../Pages/bank/Bank";
 import { ChangePassword } from "../Pages/ChangePassword";
 import { PersonalDetailsPage } from "../Pages/PersonalDetails";
+import AccountRecordPage from "../Pages/Account_Record/AccountRecordPage";
+import PlanRecordPage from "../Pages/plan_record/PlanRecordPage";
 export default function AllRoutes() {
     return (
       <Routes>
@@ -27,6 +29,8 @@ export default function AllRoutes() {
           <Route path="/change-password" element={<ChangePassword/>} />
           <Route path="/my-bank" element={<BankPage/>} />
           <Route path="/personal" element={<PersonalDetailsPage/>} />
+          <Route path="/transction" element={<AccountRecordPage/>} />PlanRecordPage
+          <Route path="/plan-record" element={<PlanRecordPage/>} />
           <Route path="/invite" element={<Invite/>} />
           <Route path="/payment" element={<Payment/>} />
           <Route path="/response" element={<Response/>} />

@@ -1,11 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import "../styles/Withdraw.css";
 import { useEffect, useState } from "react";
+import { Box, Button, Input, Text } from "@chakra-ui/react";
 
 export default function Withdraw() {
     let [userData, setUserData] = useState({});
     let [withDrawAmount, setWithDrawAmount]  = useState(0);
     let [data, setData] = useState([])
-
+     let navigate = useNavigate()
     useEffect(()=> {
         let userId = localStorage.getItem("userId") || "";
         fetch(`http://localhost:3330/api/v1/userDetails/homePage?id=${userId}`
@@ -54,8 +56,9 @@ export default function Withdraw() {
   return (
     <>
       <nav>
-        <button onClick={() => window.location.href="/index"}> <img src={require("../assests/back.png")} alt="" /> </button>
-        <h1>Withdraw</h1>
+        <Text onClick={() => navigate(-1)}> <img src={require("../assests/back.png")} alt="" /> </Text>
+     
+        <Text as='b'>Withdraw</Text>
     </nav>
     <section>
         <p> Tax 10%</p>
@@ -77,10 +80,11 @@ export default function Withdraw() {
         
     </div>
     <div className="withdraw-detail">
-    <input type="text" placeholder="Enter Withdrawl Amount" required value={withDrawAmount} onChange={handleInputChange}/>
+    <input type="text" placeholder="Enter Withdrawl Amount" color="black" required value={withDrawAmount} onChange={handleInputChange}/>
 
         </div>
-        <ul>
+      <Box className="withdraw_instruction">
+      <ul>
             <li>Your money will be transfer to your account within 6 hour.</li>
 
             <li>
@@ -90,7 +94,9 @@ export default function Withdraw() {
                 The actual arrival time of the withdrawals is subject to the processing time of the local bank.
             </li>
         </ul>
-        <button onClick={withDraw}>Confirm</button>
+        <Button my='1em' w='100%' bg='#ABABAB' color={"white"} onClick={withDraw}>Confirm</Button>
+      </Box>
+        
     </section>
     </>
   );

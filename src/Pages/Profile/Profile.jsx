@@ -59,12 +59,12 @@ export const ProfilePage = () => {
         
           <Text as='abbr'>Personal details</Text>
         </Button>
-        <Button leftIcon={<PiNoteLight />} className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => handleButtonClick(2)}>
+        <Button leftIcon={<PiNoteLight />} className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => navigate('/plan-record')}>
             
           <Text as='abbr'>Plan Record</Text>
           
         </Button>
-        <Button leftIcon={<PiNotepadLight />}  className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => handleButtonClick(3)}>
+        <Button leftIcon={<PiNotepadLight />}  className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => navigate('/transction')}>
             
           <Text as='abbr'>Account Record</Text>
           
