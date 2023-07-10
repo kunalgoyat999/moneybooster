@@ -38,7 +38,7 @@ export const Footer = () => {
          
          <IoMdMore/>
         <Text >
-        Profile
+        More
         </Text>
         </div>
     </Link>

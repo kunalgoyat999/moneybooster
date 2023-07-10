@@ -28,7 +28,7 @@ export const ProfilePage = () => {
         <Image
          borderRadius='50%'
          boxSize='140px'
-         src='https://bit.ly/dan-abramov'
+         src={require('../../assests/user.png')}
          alt='Dan Abramov'
         />
         <Text fontSize='1.5em' as='b' className="profile-name">John Doe</Text>
