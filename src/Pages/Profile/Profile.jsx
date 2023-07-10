@@ -15,10 +15,13 @@ import { useNavigate } from 'react-router-dom';
 export const ProfilePage = () => {
   let navigate = useNavigate()
 
-  const handleButtonClick = (buttonName) => {
-    console.log(`Button ${buttonName} clicked!`);
-    // You can add your desired logic or actions here
+  const handleContactUs = () => {
+    window.open('https://t.me/kunalgoyat', '_blank');
   };
+  const handleButtonClick = () => {
+    window.open('https://t.me/kunalgoyat', '_blank');
+  };
+  
 
   return (
     <div className="profile-page">
@@ -71,7 +74,7 @@ export const ProfilePage = () => {
           <Text as='abbr'>My Bank</Text>
          
         </Button>
-        <Button leftIcon={<BiSupport />} className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => handleButtonClick(5)}>
+        <Button leftIcon={<BiSupport />} className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={handleContactUs}>
             
             <Text as='abbr'>Contact Us</Text>
             
@@ -81,16 +84,16 @@ export const ProfilePage = () => {
           <Text as='abbr'>Company Profile</Text>
           
         </Button>
-        <Button leftIcon={<RiLockPasswordLine />} className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => navigate('/change-password')}>
+        {/* <Button leftIcon={<RiLockPasswordLine />} className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => navigate('/change-password')}>
             
             <Text as='abbr'>Change Password</Text>
             
           </Button>
-        
+         */}
       </ButtonGroup>
-      <Button id='profile-logout' leftIcon={<MdLogout />}  w='90%' color='#E84B41' lineHeight='4em' colorScheme='' variant='ghost'>
+      {/* <Button id='profile-logout' leftIcon={<MdLogout />}  w='90%' color='#E84B41' lineHeight='4em' colorScheme='' variant='ghost'>
       Logout
-      </Button>
+      </Button> */}
       </div>
     </div>
   );
