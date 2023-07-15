@@ -17,10 +17,10 @@ export const ProfilePage = () => {
   const [user, setUser] = useState({})
 
   const handleContactUs = () => {
-    window.open('https://t.me/kunalgoyat', '_blank');
+    window.open('https://telegram.me/MoneyBooster1234', '_blank');
   };
   const handleButtonClick = () => {
-    window.open('https://t.me/kunalgoyat', '_blank');
+    window.open('https://telegram.me/MoneyBooster1234', '_blank');
   };
   
   useEffect(() => {
@@ -87,7 +87,7 @@ export const ProfilePage = () => {
             <Text as='abbr'>Contact Us</Text>
             
           </Button>
-        <Button leftIcon={<SiInformatica />} className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => handleButtonClick(5)}>
+        <Button leftIcon={<SiInformatica />} className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => navigate('/about-us')}>
             
           <Text as='abbr'>Company Profile</Text>
           

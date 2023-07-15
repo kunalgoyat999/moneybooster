@@ -16,7 +16,7 @@ export default function Forgot() {
       event.preventDefault();
       if (email.length != 0 && password.length != 0) {
         fetch(
-          `http://localhost:3330/api/v1/userDetails/getUser?email=${email}&password=${password}`
+          `13.200.125.53:3330/api/v1/userDetails/getUser?email=${email}&password=${password}`
         )
           .then((response) => response.json())
           .then((responseData) => {

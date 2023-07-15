@@ -33,7 +33,7 @@ export const PersonalDetailsPage = () => {
       phone: personal_details.phone,
       email: personal_details.email
     }
-    fetch(`http://localhost:3330/api/v1/userDetails/updateProfile`, {
+    fetch(`13.200.125.53:3330/api/v1/userDetails/updateProfile`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify(data)
@@ -50,7 +50,7 @@ export const PersonalDetailsPage = () => {
   useEffect(()=> {
     let userId = localStorage.getItem("userId") || "";
     setId(userId);
-    fetch(`http://localhost:3330/api/v1/userDetails/homePage?id=${userId}`
+    fetch(`13.200.125.53:3330/api/v1/userDetails/homePage?id=${userId}`
     )
       .then((response) => response.json())
       .then((responseData) => {

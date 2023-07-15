@@ -9,8 +9,17 @@ import inviteSvg from "../assests/invite.svg"
 import supportSvg from "../assests/support.svg"
 import withdrawSvg from "../assests/withdraw.svg"
 import Axios  from "axios";
-import Modal from 'react-modal';
-import { Text } from "@chakra-ui/react";
+import { 
+  Text, 
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from "@chakra-ui/react";
 import{ useNavigate } from 'react-router-dom'
 
 export default function () {
@@ -24,7 +33,7 @@ export default function () {
   useEffect(()=> {
     let userId = localStorage.getItem("userId") || "";
     setId(userId);
-    fetch(`http://localhost:3330/api/v1/userDetails/homePage?id=${userId}`
+    fetch(`13.200.125.53:3330/api/v1/userDetails/homePage?id=${userId}`
     )
       .then((response) => response.json())
       .then((responseData) => {
@@ -38,12 +47,13 @@ export default function () {
   }, [])
   
   const handleRecharge = () => {
-    window.location.href = "http://localhost:3330/pay"
+    // window.location.href = "http://localhost:3330/pay"
+    window.location.href = "13.200.125.53:3330/pay"
     
   }
 
   const handleButtonClick = () => {
-    window.open('https://t.me/kunalgoyat', '_blank');
+    window.open('https://telegram.me/MoneyBooster1234', '_blank');
   };
 
   const buyPlan = (planNo) => {
@@ -56,11 +66,11 @@ export default function () {
       setModalIsOpen(true);
       setAmount(amt)
       setPlan(plan)
-    // } else {
-    //   alert("Please do reacharge!")
-    // }
-    
   };
+
+  const handleOpenModal1 = () => {
+    console.log("ok")
+  }
 
   const handleCloseModal = () => {
     setModalIsOpen(false);
@@ -73,7 +83,7 @@ export default function () {
       amount: amount,
       planNo: planNo
     }
-    fetch(`http://localhost:3330/api/v1/userDetails/buyplan?id=${id}`,{
+    fetch(`13.200.125.53:3330/api/v1/userDetails/buyplan?id=${id}`,{
         method: "POST",
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify(data)
@@ -176,47 +186,136 @@ export default function () {
             <div>
               <img src={plan1} alt="" />
               <div className="buy-btn">
-                <button onClick={()=> handleOpenModal(1, 1)}>Buy Now</button>
+                <button onClick={()=> handleOpenModal(490, 1)}>Buy Now</button>
               </div>
             </div>
 
             <div>
-              <img src={require("../assests/plans/plane 2.png")} alt="" />
+              <img src={require("../assests/plans/2.png")} alt="" />
               <div className="buy-btn">
-                <button onClick={()=> handleOpenModal(2, 2)}>Buy Now</button>
+                <button onClick={()=> handleOpenModal(1680, 2)}>Buy Now</button>
               </div>
             </div>
 
             <div>
-              <img src={require("../assests/plans/plane 3.png")} alt="" />
+              <img src={require("../assests/plans/3.png")} alt="" />
               <div className="buy-btn">
-                <button onClick={()=> handleOpenModal(3, 3)}>Buy Now</button>
+                <button onClick={()=> handleOpenModal(4860, 3)}>Buy Now</button>
               </div>
             </div>
 
             <div>
-              <img src={require("../assests/plans/plane 4.png")} alt="" />
+              <img src={require("../assests/plans/4.png")} alt="" />
               <div className="buy-btn">
-                <button onClick={()=> handleOpenModal(4, 4)}>Buy Now</button>
+                <button onClick={()=> handleOpenModal(13700, 4)}>Buy Now</button>
               </div>
             </div>
 
             <div>
-              <img src={require("../assests/plans/plane 5.png")} alt="" />
+              <img src={require("../assests/plans/5.png")} alt="" />
               <div className="buy-btn">
-                <button onClick={()=> handleOpenModal(5, 5)}>Buy Now</button>
+                <button onClick={()=> handleOpenModal(26800, 5)}>Buy Now</button>
               </div>
             </div>
-            <Modal
+            <div>
+              <img src={require("../assests/plans/6.png")} alt="" />
+              <div className="buy-btn">
+                <button onClick={()=> handleOpenModal1(5, 5)} style={{backgroundColor: "gray"}}>Available Soon</button>
+              </div>
+            </div>
+            <div>
+              <img src={require("../assests/plans/7.png")} alt="" />
+              <div className="buy-btn">
+                <button onClick={()=> handleOpenModal1(5, 5)} style={{backgroundColor: "gray"}}>Available Soon</button>
+              </div>
+            </div>
+            <div>
+              <img src={require("../assests/plans/8.png")} alt="" />
+              <div className="buy-btn">
+                <button onClick={()=> handleOpenModal1(5, 5)} style={{backgroundColor: "gray"}}>Available Soon</button>
+              </div>
+            </div>
+            <div>
+              <img src={require("../assests/plans/9.png")} alt="" />
+              <div className="buy-btn">
+                <button onClick={()=> handleOpenModal1(5, 5)} style={{backgroundColor: "gray"}}>Available Soon</button>
+              </div>
+            </div>
+            <div>
+              <img src={require("../assests/plans/10.png")} alt="" />
+              <div className="buy-btn">
+                <button onClick={()=> handleOpenModal1(5, 5)} style={{backgroundColor: "gray"}}>Available Soon</button>
+              </div>
+            </div>
+            <div>
+              <img src={require("../assests/plans/11.png")} alt="" />
+              <div className="buy-btn">
+                <button onClick={()=> handleOpenModal1(5, 5)} style={{backgroundColor: "gray"}}>Available Soon</button>
+              </div>
+            </div>
+            <div>
+              <img src={require("../assests/plans/12.png")} alt="" />
+              <div className="buy-btn">
+                <button onClick={()=> handleOpenModal1(5, 5)} style={{backgroundColor: "gray"}}>Available Soon</button>
+              </div>
+            </div>
+            <div>
+              <img src={require("../assests/plans/13.png")} alt="" />
+              <div className="buy-btn">
+                <button onClick={()=> handleOpenModal1(5, 5)} style={{backgroundColor: "gray"}}>Available Soon</button>
+              </div>
+            </div>
+            <div>
+              <img src={require("../assests/plans/14.png")} alt="" />
+              <div className="buy-btn">
+                <button onClick={()=> handleOpenModal1(5, 5)} style={{backgroundColor: "gray"}}>Available Soon</button>
+              </div>
+            </div>
+            <div>
+              <img src={require("../assests/plans/Benefit Plane 1.png")} alt="" />
+              <div className="buy-btn">
+                <button onClick={()=> handleOpenModal1(5, 5)} style={{backgroundColor: "gray"}}>Available Soon</button>
+              </div>
+            </div>
+            <div>
+              <img src={require("../assests/plans/Benefit Plane 2.png")} alt="" />
+              <div className="buy-btn">
+                <button onClick={()=> handleOpenModal1(5, 5)} style={{backgroundColor: "gray"}}>Available Soon</button>
+              </div>
+            </div>
+            <div>
+              <img src={require("../assests/plans/Benefit Plane 3.png")} alt="" />
+              <div className="buy-btn">
+                <button onClick={()=> handleOpenModal1(5, 5)} style={{backgroundColor: "gray"}}>Available Soon</button>
+              </div>
+            </div>
+            {/* <Modal
               isOpen={modalIsOpen}
               onRequestClose={handleCloseModal}
               contentLabel="Example Modal"
               style={customStyles}
             >
-              <h2>MoneyBooster Plan</h2>
-              <p>Do you want to buy this plan?</p>
+              <Text style={{fontSize: '25px'}}>MoneyBooster Plan</Text>
+              <Text style={{fontSize: '14px'}}>Do you want to buy this plan?</Text>
               <button style={{background: "#D7937A"}} onClick={handleOkay}>Okay</button>
               <button style={{background: "#D7937A"}} onClick={handleCancel}>Cancel</button>
+            </Modal> */}
+            <Modal isOpen={modalIsOpen} onClose={handleCloseModal}>
+              <ModalOverlay />
+              <ModalContent>
+                <ModalHeader>MoneyBooster Plan</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>
+                  Do you want to buy this plan?
+                </ModalBody>
+
+                <ModalFooter>
+                  <Button variant='ghost'  onClick={handleCancel}>
+                    Close 
+                  </Button>
+                  <Button colorScheme='blue' mr={3} onClick={handleOkay}>Confirm</Button>
+                </ModalFooter>
+              </ModalContent>
             </Modal>
           </div>
           <div style={{ width: 100, height: 50 }}>

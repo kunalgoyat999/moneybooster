@@ -19,7 +19,7 @@ export const handleRegister = (payload) => {
 export const userRegister = (data) => {
    let { email, password, name, phone} = data
 
-   fetch("http://localhost:3330/api/v1/userDetails/postUserDetails", {
+   fetch("13.200.125.53:3330/api/v1/userDetails/postUserDetails", {
      method: "POST",
      headers: {
        "Content-Type": "application/json",

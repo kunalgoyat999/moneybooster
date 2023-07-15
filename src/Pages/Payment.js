@@ -44,7 +44,7 @@ export default function Payment () {
         }
     }
     useEffect(() => {
-        Axios.get("http://localhost:3330/pay").then((response) => {
+        Axios.get("13.200.125.53:3330/pay").then((response) => {
             // console.log(response.data);
             setHtml(response.data)
         })

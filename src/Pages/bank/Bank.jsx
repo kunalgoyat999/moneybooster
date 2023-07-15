@@ -26,7 +26,7 @@ export const BankPage = () => {
   useEffect(() => {
     let userId = localStorage.getItem("userId") || "";
     setId(userId);
-    fetch(`http://localhost:3330/api/v1/userDetails/homePage?id=${userId}`)
+    fetch(`13.200.125.53:3330/api/v1/userDetails/homePage?id=${userId}`)
       .then((response) => response.json())
       .then((responseData) => {
         setAccount(responseData.userDetails.accountNo)
@@ -49,7 +49,7 @@ export const BankPage = () => {
         ifsc_code: ifsc,
         bankName: bank,
       };
-      fetch(`http://localhost:3330/api/v1/userDetails/updateBankInfo`, {
+      fetch(`13.200.125.53:3330/api/v1/userDetails/updateBankInfo`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

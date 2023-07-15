@@ -10,6 +10,7 @@ import Forgot from "../Pages/Forgot";
 import { Otp } from "../Pages/otp";
 import { Footer } from '../Pages/FooterNav/FooterNav';
 import ProfilePage from "../Pages/Profile/Profile";
+import AboutUs from "../Pages/about";
 import TeamPage from "../Pages/Team/TeamPage";
 import { BankPage } from "../Pages/bank/Bank";
 import { ChangePassword } from "../Pages/ChangePassword";
@@ -35,6 +36,7 @@ export default function AllRoutes() {
           <Route path="/payment" element={<Payment/>} />
           <Route path="/response" element={<Response/>} />
           <Route path="/forgot" element={<Forgot/>} />
+          <Route path="/about-us" element={<AboutUs/>} />
       </Routes>
     );
   }
