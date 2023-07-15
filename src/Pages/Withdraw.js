@@ -10,7 +10,7 @@ export default function Withdraw() {
      let navigate = useNavigate()
     useEffect(()=> {
         let userId = localStorage.getItem("userId") || "";
-        fetch(`13.200.125.53:3330/api/v1/userDetails/homePage?id=${userId}`
+        fetch(`http://13.200.125.53:3330/api/v1/userDetails/homePage?id=${userId}`
         )
           .then((response) => response.json())
           .then((responseData) => {
@@ -35,7 +35,7 @@ export default function Withdraw() {
             navigate("/Profile")
           } 
           else {
-            fetch("13.200.125.53:3330/api/v1/userDetails/withDrawAmount", {
+            fetch("http://13.200.125.53:3330/api/v1/userDetails/withDrawAmount", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

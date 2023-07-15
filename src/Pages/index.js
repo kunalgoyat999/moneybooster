@@ -33,7 +33,7 @@ export default function () {
   useEffect(()=> {
     let userId = localStorage.getItem("userId") || "";
     setId(userId);
-    fetch(`13.200.125.53:3330/api/v1/userDetails/homePage?id=${userId}`
+    fetch(`http://13.200.125.53:3330/api/v1/userDetails/homePage?id=${userId}`
     )
       .then((response) => response.json())
       .then((responseData) => {
@@ -48,7 +48,7 @@ export default function () {
   
   const handleRecharge = () => {
     // window.location.href = "http://localhost:3330/pay"
-    window.location.href = "13.200.125.53:3330/pay"
+    window.location.href = "http://13.200.125.53:3330/pay"
     
   }
 
@@ -83,7 +83,7 @@ export default function () {
       amount: amount,
       planNo: planNo
     }
-    fetch(`13.200.125.53:3330/api/v1/userDetails/buyplan?id=${id}`,{
+    fetch(`http://13.200.125.53:3330/api/v1/userDetails/buyplan?id=${id}`,{
         method: "POST",
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify(data)

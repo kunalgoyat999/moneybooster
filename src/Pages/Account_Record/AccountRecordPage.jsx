@@ -32,7 +32,7 @@ const AccountRecordPage = () => {
   useEffect(() => {
     let id = localStorage.getItem("userId") || "";
 
-    fetch(`13.200.125.53:3330/api/v1/userDetails/accountRecord?id=${id}&level=${level}`)
+    fetch(`http://13.200.125.53:3330/api/v1/userDetails/accountRecord?id=${id}&level=${level}`)
     .then((response)=> response.json())
     .then((res)=> {
       console.log("res", res)
