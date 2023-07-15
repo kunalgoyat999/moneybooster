@@ -78,7 +78,7 @@ export default function Login() {
         <button id="login" onClick={handleSubmit}>
           Login
         </button>
-        <Link to="register/ldsfjlsdcak">Register Now</Link>
+        <Link to="register/ldsfjlsdcak"><button>Register Now</button></Link>
        </Stack>
       </div>
     </>
