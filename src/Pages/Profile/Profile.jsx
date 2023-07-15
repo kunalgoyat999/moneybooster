@@ -9,11 +9,12 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { CiBank } from "react-icons/ci"; 
 import { MdLogout } from "react-icons/md"; 
 import { useNavigate } from 'react-router-dom';
-
+import {useEffect, useState} from "react"
 
 
 export const ProfilePage = () => {
-  let navigate = useNavigate()
+  let navigate = useNavigate();
+  const [user, setUser] = useState({})
 
   const handleContactUs = () => {
     window.open('https://t.me/kunalgoyat', '_blank');
@@ -22,6 +23,13 @@ export const ProfilePage = () => {
     window.open('https://t.me/kunalgoyat', '_blank');
   };
   
+  useEffect(() => {
+    let userLocal = localStorage.getItem("user") || "";
+    if (userLocal) {
+      let parsedUser = JSON.parse(userLocal);
+      setUser(parsedUser);
+    }
+  },[])
 
   return (
     <div className="profile-page">
@@ -34,7 +42,7 @@ export const ProfilePage = () => {
          src={require('../../assests/user.png')}
          alt='Dan Abramov'
         />
-        <Text fontSize='1.5em' as='b' className="profile-name">John Doe</Text>
+        <Text fontSize='1.5em' as='b' className="profile-name">{user.name || "User"}</Text>
       </div>
      
       <div className='profile_sec'>
@@ -42,15 +50,15 @@ export const ProfilePage = () => {
       <div className="demo-names">
         <div className="demo-name">
         <Text as='abbr'>Asset</Text> 
-        <Text as='abbr'>0.00</Text>
+        <Text as='abbr'>{user.amountToBeUse || 0}</Text>
         </div>
         <div className="demo-name">
         <Text as='abbr'>Recharge</Text> 
-        <Text as='abbr'>1580</Text>
+        <Text as='abbr'>{user.amounAdded || 0}</Text>
          </div>
         <div className="demo-name">
         <Text as='abbr'>Income</Text> 
-        <Text as='abbr'>860</Text>
+        <Text as='abbr'>{user.amountWithraw || 0}</Text>
          </div>
       </div>
 
@@ -59,11 +67,11 @@ export const ProfilePage = () => {
         
           <Text as='abbr'>Personal details</Text>
         </Button>
-        <Button leftIcon={<PiNoteLight />} className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => navigate('/plan-record')}>
+        {/* <Button leftIcon={<PiNoteLight />} className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => navigate('/plan-record')}>
             
           <Text as='abbr'>Plan Record</Text>
           
-        </Button>
+        </Button> */}
         <Button leftIcon={<PiNotepadLight />}  className="profile-button"   rightIcon={<IoIosArrowForward />} onClick={() => navigate('/transction')}>
             
           <Text as='abbr'>Account Record</Text>

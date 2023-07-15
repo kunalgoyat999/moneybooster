@@ -30,7 +30,7 @@ export default function AllRoutes() {
           <Route path="/my-bank" element={<BankPage/>} />
           <Route path="/personal" element={<PersonalDetailsPage/>} />
           <Route path="/transction" element={<AccountRecordPage/>} />PlanRecordPage
-          <Route path="/plan-record" element={<PlanRecordPage/>} />
+          {/* <Route path="/plan-record" element={<PlanRecordPage/>} /> */}
           <Route path="/invite" element={<Invite/>} />
           <Route path="/payment" element={<Payment/>} />
           <Route path="/response" element={<Response/>} />

@@ -30,7 +30,11 @@ export default function Withdraw() {
           console.log("parseInt(withDrawAmount)", parseInt(withDrawAmount), "withDrawAmount", withDrawAmount)
           if(parseInt(currentWithdrawalAmount) - parseInt(withDrawAmount) < 0){
               alert("Your Income is less than withdrawal Amount")
-          } else {
+          }else if(userData.accountNo === undefined || userData.ifscCode === undefined || userData.bankName === undefined){
+            alert("Please first fill your account Details")
+            navigate("/Profile")
+          } 
+          else {
             fetch("http://localhost:3330/api/v1/userDetails/withDrawAmount", {
                 method: "POST",
                 headers: {
@@ -62,7 +66,7 @@ export default function Withdraw() {
     </nav>
     <section>
         <p> Tax 10%</p>
-        <p>Assets : {userData.amountToBeUse === undefined ? 0 : userData.amountToBeUse} </p>
+        <p>Assets : {userData.amountWithraw === undefined ? 0 : userData.amountWithraw} </p>
 
     <div className="withdraw-details">
         <div>

@@ -3,7 +3,6 @@ import { MemberCard } from "./MemberCard";
 import { Text } from "@chakra-ui/react";
 
 export const TeamMember = ({ level, data }) => {
-  console.log("dataaaaaaa", level, data);
 
   return (
     <div className="member_container">

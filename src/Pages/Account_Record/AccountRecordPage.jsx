@@ -26,17 +26,26 @@ const intiData = [
 
 const AccountRecordPage = () => {
   const [level, setLevel] = useState(1);
-  const [account_transaction, setaccount_transaction] = useState(intiData);
+  const [account_transaction, setaccount_transaction] = useState([]);
   let navigate = useNavigate()
   
   useEffect(() => {
-    
+    let id = localStorage.getItem("userId") || "";
+
+    fetch(`http://localhost:3330/api/v1/userDetails/accountRecord?id=${id}&level=${level}`)
+    .then((response)=> response.json())
+    .then((res)=> {
+      console.log("res", res)
+      let arr = res.results
+      let newArr = arr.slice().reverse()
+      setaccount_transaction(newArr)
+    })
   }, [level]);
 
 
 
   const handleLevelChange = (num) => {
-    setLevel(num);
+    setLevel(num)
     // setaccount_transaction([]);
   };
 

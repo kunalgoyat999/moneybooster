@@ -30,7 +30,7 @@ export default function () {
       .then((responseData) => {
         setAuth(true)
         setUserData(responseData.userDetails)
-
+        localStorage.setItem("user", JSON.stringify(responseData.userDetails))
       })
       .catch((error) => {
         console.error(error);

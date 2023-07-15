@@ -3,7 +3,6 @@ import { TransactionCard } from "./TransactionCard";
 import { Text } from "@chakra-ui/react";
 
 export const Records = ({ level, data }) => {
-  console.log("dataaaaaaa", level, data);
 
   return (
     <div className="transaction_container">

@@ -123,7 +123,9 @@ const handleSubmit = (event) => {
                window.location.href = "/index";
              }
            })
+           localStorage.setItem("userId", responseData.id)
          } else {
+          localStorage.setItem("userId", responseData.id)
           alert("Registration Successfull");
           window.location.href = "/index";
          }
