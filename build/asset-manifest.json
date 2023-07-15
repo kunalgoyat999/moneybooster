@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/static/css/main.16a0715d.css",
+    "main.js": "/static/js/main.38b2a3eb.js",
+    "static/js/787.27c37cd1.chunk.js": "/static/js/787.27c37cd1.chunk.js",
+    "static/media/Image 1.png": "/static/media/Image 1.10988e14be35044ae104.png",
+    "static/media/Image 2.png": "/static/media/Image 2.973aa8d4355fe7be7d75.png",
+    "static/media/Image 3.png": "/static/media/Image 3.6218954e44eb90563b92.png",
+    "static/media/Group 48096980.svg": "/static/media/Group 48096980.6d049d3c05be561e0ea18930b09bdd75.svg",
+    "static/media/Benefit Plane 1.png": "/static/media/Benefit Plane 1.9c4ab1b815dd603fea21.png",
+    "static/media/10.png": "/static/media/10.b4075e98f2c742904504.png",
+    "static/media/9.png": "/static/media/9.03f8229340ae61292533.png",
+    "static/media/8.png": "/static/media/8.f8f18cdf545d3b50c3c2.png",
+    "static/media/5.png": "/static/media/5.6f21623840441199c1cf.png",
+    "static/media/13.png": "/static/media/13.8724cc54a3f087250765.png",
+    "static/media/14.png": "/static/media/14.15f11a8e83892d68785e.png",
+    "static/media/3.png": "/static/media/3.9779d0c570256c887294.png",
+    "static/media/Benefit Plane 3.png": "/static/media/Benefit Plane 3.7294370ef8db4726892b.png",
+    "static/media/4.png": "/static/media/4.89673b812f6df47198b4.png",
+    "static/media/Benefit Plane 2.png": "/static/media/Benefit Plane 2.51872d39856489266e55.png",
+    "static/media/12.png": "/static/media/12.28063afc44ef52a94e16.png",
+    "static/media/6.png": "/static/media/6.6417e04a8d826921dc4a.png",
+    "static/media/7.png": "/static/media/7.1a34ca2cbbf4fecfbfbf.png",
+    "static/media/2.png": "/static/media/2.f98a15b5dd3a5215725d.png",
+    "static/media/11.png": "/static/media/11.4c705e9e2b82def2444a.png",
+    "static/media/1.png": "/static/media/1.93c64fcd6cfb1201f008.png",
+    "static/media/user.png": "/static/media/user.44ea40a3eb8dd7fed2a9.png",
+    "static/media/support.svg": "/static/media/support.309d3598c2650de0e2058c01e234e4dd.svg",
+    "static/media/withdraw.svg": "/static/media/withdraw.02fee4a959cc2de4f1af4505ad4393c4.svg",
+    "static/media/Group.svg": "/static/media/Group.836c3bde6c310f50685893c663fe0bb5.svg",
+    "index.html": "/index.html",
+    "static/media/invite.svg": "/static/media/invite.e0d8c60a3366e1383808954914f20cc1.svg",
+    "main.16a0715d.css.map": "/static/css/main.16a0715d.css.map",
+    "main.38b2a3eb.js.map": "/static/js/main.38b2a3eb.js.map",
+    "787.27c37cd1.chunk.js.map": "/static/js/787.27c37cd1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.16a0715d.css",
+    "static/js/main.38b2a3eb.js"
+  ]
+}
