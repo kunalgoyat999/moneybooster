@@ -28,7 +28,7 @@ export default function Login() {
     event.preventDefault();
     if (email.length != 0 && password.length != 0) {
       fetch(
-        `https://cashbooster.info:3330/api/v1/userDetails/getUser?email=${email}&password=${password}`
+        `https://cashbooster.info/api/v1/userDetails/getUser?email=${email}&password=${password}`
       )
         .then((response) => response.json())
         .then((responseData) => {
