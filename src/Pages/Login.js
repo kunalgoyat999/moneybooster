@@ -2,15 +2,16 @@ import "../styles/Login.css";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-// import { useH } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Input,Stack } from '@chakra-ui/react'
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Axios from "axios"
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
   const handleRedirect = () => {
     window.location.href = '/register'
@@ -37,7 +38,8 @@ export default function Login() {
             console.log(responseData.userDetails.id)
             localStorage.setItem("userId", responseData.userDetails._id)
             alert("Login successful");
-            window.location.href = "/index";
+            // window.location.href = "/index";
+            navigate('/index')
           } else {
             alert("Invalid Email Id or Password");
           }
