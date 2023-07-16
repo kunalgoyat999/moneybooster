@@ -93,7 +93,7 @@ export default function () {
        console.log("res", res)
        if(res.message === "Recharge Done"){
          alert("Recharge Successful")
-         window.location.reload();
+         navigate('/index')
        } else {
          alert("Something went wrong")
        }
