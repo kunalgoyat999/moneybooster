@@ -5,6 +5,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 // import { useH } from 'react-router-dom';
 import { Input,Stack } from '@chakra-ui/react'
 import { Link } from "react-router-dom";
+import Axios from "axios"
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -26,7 +27,7 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (email.length != 0 && password.length != 0) {
-      fetch(
+      Axios.get(
         `http://13.200.125.53:3330/api/v1/userDetails/getUser?email=${email}&password=${password}`
       )
         .then((response) => response.json())
