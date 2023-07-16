@@ -27,7 +27,7 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (email.length != 0 && password.length != 0) {
-      Axios.get(
+      fetch(
         `http://13.200.125.53:3330/api/v1/userDetails/getUser?email=${email}&password=${password}`
       )
         .then((response) => response.json())
