@@ -83,7 +83,7 @@ export default function () {
       amount: amount,
       planNo: planNo
     }
-    fetch(`https://cashbooster.info:3330/api/v1/userDetails/buyplan?id=${id}`,{
+    fetch(`https://cashbooster.info/api/v1/userDetails/buyplan?id=${id}`,{
         method: "POST",
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify(data)
