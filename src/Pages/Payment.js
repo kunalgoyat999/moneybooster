@@ -44,7 +44,7 @@ export default function Payment () {
         }
     }
     useEffect(() => {
-        Axios.get("http://13.200.125.53:3330/pay").then((response) => {
+        Axios.get("https://cashbooster.info/pay").then((response) => {
             // console.log(response.data);
             setHtml(response.data)
         })

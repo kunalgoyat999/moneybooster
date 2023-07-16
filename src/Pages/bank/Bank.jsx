@@ -26,7 +26,7 @@ export const BankPage = () => {
   useEffect(() => {
     let userId = localStorage.getItem("userId") || "";
     setId(userId);
-    fetch(`http://13.200.125.53:3330/api/v1/userDetails/homePage?id=${userId}`)
+    fetch(`https://cashbooster.info/api/v1/userDetails/homePage?id=${userId}`)
       .then((response) => response.json())
       .then((responseData) => {
         setAccount(responseData.userDetails.accountNo)
@@ -49,7 +49,7 @@ export const BankPage = () => {
         ifsc_code: ifsc,
         bankName: bank,
       };
-      fetch(`http://13.200.125.53:3330/api/v1/userDetails/updateBankInfo`, {
+      fetch(`https://cashbooster.info/api/v1/userDetails/updateBankInfo`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

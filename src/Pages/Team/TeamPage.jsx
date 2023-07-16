@@ -16,7 +16,7 @@ const TeamPage = () => {
 
   useEffect(() => {
     let userId = localStorage.getItem("userId") || "";
-    fetch(`http://13.200.125.53:3330/api/v1/userDetails/homePage?id=${userId}`)
+    fetch(`https://cashbooster.info/api/v1/userDetails/homePage?id=${userId}`)
       .then((response) => response.json())
       .then((responseData) => {
         setUserData(responseData.userDetails);
@@ -33,7 +33,7 @@ const TeamPage = () => {
     if (userData.level1 !== undefined) {
       Promise.all(
         userData.level1.map((userId) =>
-          fetch(`http://13.200.125.53:3330/api/v1/userDetails/homePage?id=${userId}`)
+          fetch(`https://cashbooster.info/api/v1/userDetails/homePage?id=${userId}`)
             .then((response) => response.json())
             .then((responseData) => responseData.userDetails)
             .catch((error) => {
@@ -58,7 +58,7 @@ const TeamPage = () => {
     if (levelData !== undefined) {
       Promise.all(
         levelData.map((userId) =>
-          fetch(`http://13.200.125.53:3330/api/v1/userDetails/homePage?id=${userId}`)
+          fetch(`https://cashbooster.info/api/v1/userDetails/homePage?id=${userId}`)
             .then((response) => response.json())
             .then((responseData) => responseData.userDetails)
             .catch((error) => {

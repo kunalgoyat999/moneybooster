@@ -92,7 +92,7 @@ const handleSubmit = (event) => {
       phone: phone,
     };
     
-    fetch("http://13.200.125.53:3330/api/v1/userDetails/postUserDetails", {
+    fetch("https://cashbooster.info/api/v1/userDetails/postUserDetails", {
      method: "POST",
      headers: {
        "Content-Type": "application/json",
@@ -108,7 +108,7 @@ const handleSubmit = (event) => {
             id: responseData.id,
             refered_id: refer || id
           }
-         fetch(`http://13.200.125.53:3330/api/v1/userDetails/refrel`, {
+         fetch(`https://cashbooster.info/api/v1/userDetails/refrel`, {
            method: 'POST',
            headers: { 'Content-Type': 'application/json'},
            body: JSON.stringify(referData)
