@@ -15,30 +15,30 @@ export const handleRegister = (payload) => {
 }
 
 
-// new user
-export const userRegister = (data) => {
-   let { email, password, name, phone} = data
 
-   fetch("https://cashbooster.info/api/v1/userDetails/postUserDetails", {
-     method: "POST",
-     headers: {
-       "Content-Type": "application/json",
-     },
-     body: JSON.stringify(data),
-   })
-     .then((response) => response.json())
-     .then((responseData) => {
-       // Handle the response data
-       if (responseData.message == "Saved user details") {
-         alert("Registration Successfull");
-         window.location.href = "/index";
-       } else {
-         alert("User Already Registered");
-         window.location.href = './'
-       }
-     })
-     .catch((error) => {
-       // Handle any errors
-       console.error(error);
-     });
- };
+// export const userRegister = (data) => {
+//    let { email, password, name, phone} = data
+
+//    fetch("https://cashbooster.info/api/v1/userDetails/postUserDetails", {
+//      method: "POST",
+//      headers: {
+//        "Content-Type": "application/json",
+//      },
+//      body: JSON.stringify(data),
+//    })
+//      .then((response) => response.json())
+//      .then((responseData) => {
+//        // Handle the response data
+//        if (responseData.message == "Saved user details") {
+//          alert("Registration Successfull");
+//          navigate("/index")
+//        } else {
+//          alert("User Already Registered");
+//          navigate("/")
+//        }
+//      })
+//      .catch((error) => {
+//        // Handle any errors
+//        console.error(error);
+//      });
+//  };

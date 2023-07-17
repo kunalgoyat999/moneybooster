@@ -120,18 +120,18 @@ const handleSubmit = (event) => {
                alert(responseData.message)
              } else {
                alert("Registration Successfull");
-               window.location.href = "/index";
+               navigate("/index")
              }
            })
            localStorage.setItem("userId", responseData.id)
          } else {
           localStorage.setItem("userId", responseData.id)
           alert("Registration Successfull");
-          window.location.href = "/index";
+          navigate("/index")
          }
        } else {
          alert("User Already Registered");
-         window.location.href = '/'
+         navigate("/")
        }
      })
      .catch((error) => {

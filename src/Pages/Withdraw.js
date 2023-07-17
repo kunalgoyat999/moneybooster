@@ -46,7 +46,7 @@ export default function Withdraw() {
                 .then((responseData) => {
                   setData(responseData)
                   alert("Withdrawal Successful")
-                  window.location.href = "/index";
+                  navigate("/index")
                 })
                 .catch((error) => {
                   // Handle any errors

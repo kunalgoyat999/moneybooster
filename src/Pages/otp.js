@@ -1,7 +1,7 @@
 import { Input, Stack, Button, Center, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { userRegister } from "../redux/action";
+// import { userRegister } from "../redux/action";
 import { useNavigate } from "react-router-dom";
 export const Otp = () => {
   const [inputOtp, setInput] = useState("");
@@ -12,7 +12,7 @@ export const Otp = () => {
 
   const handleSubmit = () =>{
     if(curr_otp === inputOtp){
-       userRegister(data)
+      //  userRegister(data)
     }else{
         alert('Invalid Otp')
     }

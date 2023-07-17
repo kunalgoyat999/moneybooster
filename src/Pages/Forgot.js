@@ -2,13 +2,14 @@ import "../styles/Forgot.css";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-// import { useH } from 'react-router-dom';
+import{ useNavigate } from 'react-router-dom'
 
 export default function Forgot() {
     const [showPassword, setShowPassword] = useState(false);
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
-  
+    let navigate = useNavigate();
+
     const handleEmailInput = (event) => {
       setEmail(event.target.value);
     };
@@ -25,7 +26,7 @@ export default function Forgot() {
               console.log(responseData.userDetails.id)
               localStorage.setItem("userId", responseData.userDetails._id)
               alert("Login successful");
-              window.location.href = "/index";
+              navigate('/index')
             } else {
               alert("Invalid Email Id or Password");
             }

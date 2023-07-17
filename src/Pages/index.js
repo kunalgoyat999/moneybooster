@@ -20,7 +20,7 @@ import {
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
-import{ useNavigate } from 'react-router-dom'
+import{ useNavigate, Link } from 'react-router-dom'
 
 export default function () {
   let [auth, setAuth] = useState(true)
@@ -324,7 +324,7 @@ export default function () {
       </section>
       </> : <div>
         <h2 style={{color:"red"}}>You are not authorized</h2>
-        <a href="/"> <h3> Back to Login</h3></a>
+        <Link to="/"><h3>Back to Login</h3></Link>
       </div>
     }
     </>
