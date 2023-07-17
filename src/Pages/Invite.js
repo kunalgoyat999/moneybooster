@@ -28,7 +28,7 @@ export default function Invite() {
         </div>
       </section>
       <section>
-        <div className="invitationCode">
+        {/* <div className="invitationCode">
           <p>Invitation code</p>
           <div className="invitation-box">
             <input type="text" value={id} ref={textRef} />
@@ -36,13 +36,13 @@ export default function Invite() {
               <img  src={require("../assests/link_icon.png")} alt="" />
             </button>
           </div>
-        </div>
+        </div> */}
         <div className="invitationLink">
           <p>Invitation Link</p>
           <div className="invitation-box">
             <input
               type="text"
-              value={`http://localhost:3000/register/${id}`}
+              value={`https://moneybooster.netlify.app/register/${id}`}
               ref={textRef}
             />
             <button className="copyImg" onClick={() => handleCopyText()}>
