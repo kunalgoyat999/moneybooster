@@ -29,7 +29,9 @@ export default function () {
   const [amount, setAmount] = useState("");
   const [id, setId] = useState("");
   const [planNo, setPlan] = useState("");
+  const [rechageModalIsOpen, setRechageModalIsOpen] = useState(false);
   let navigate = useNavigate();
+
   useEffect(()=> {
     let userId = localStorage.getItem("userId") || "";
     setId(userId);
@@ -63,9 +65,14 @@ export default function () {
 
   const handleOpenModal = (amt, plan) => {
     // if(userData.amountToBeUse > plan){
-      setModalIsOpen(true);
-      setAmount(amt)
-      setPlan(plan)
+      if(userData.amountToBeUse != undefined) {
+        setModalIsOpen(true);
+        setAmount(amt)
+        setPlan(plan)
+      } else {
+        setRechageModalIsOpen(true)
+      }
+      
   };
 
   const handleOpenModal1 = () => {
@@ -102,10 +109,25 @@ export default function () {
   };
 
   const handleCancel = () => {
-    // Handle the "Cancel" button click
     console.log('User clicked Cancel');
     handleCloseModal();
   };
+
+  const handleRechangeCloseModal = () => {
+    setRechageModalIsOpen(false)
+  }
+
+  const handleRechargeCancel = () => {
+    setRechageModalIsOpen(false)
+  }
+
+  const handleRechargeOkay = () => {
+    window.location.href = "https://cashbooster.info/pay"
+  }
+
+  const handleRechargeOpenModal = () => {
+
+  }
 
   const customStyles = {
     content: {
@@ -314,6 +336,24 @@ export default function () {
                     Close 
                   </Button>
                   <Button colorScheme='blue' mr={3} onClick={handleOkay}>Confirm</Button>
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
+
+            <Modal isOpen={rechageModalIsOpen} onClose={handleRechangeCloseModal}>
+              <ModalOverlay />
+              <ModalContent>
+                <ModalHeader>No Rechage!</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>
+                  You don't have any Recharge. Do you want to recharge?
+                </ModalBody>
+
+                <ModalFooter>
+                  <Button variant='ghost'  onClick={handleRechargeCancel}>
+                    Close 
+                  </Button>
+                  <Button colorScheme='blue' mr={3} onClick={handleRechargeOkay}>Confirm</Button>
                 </ModalFooter>
               </ModalContent>
             </Modal>
