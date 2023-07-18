@@ -353,7 +353,7 @@ export default function () {
                   <Button variant='ghost'  onClick={handleRechargeCancel}>
                     Close 
                   </Button>
-                  <Button colorScheme='blue' mr={3} onClick={handleRechargeOkay}>Confirm</Button>
+                  <Button colorScheme='blue' mr={3} onClick={handleRechargeOkay}>Yes</Button>
                 </ModalFooter>
               </ModalContent>
             </Modal>
