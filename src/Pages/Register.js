@@ -126,7 +126,7 @@ const handleSubmit = (event) => {
            localStorage.setItem("userId", responseData.id)
          } else {
           localStorage.setItem("userId", responseData.id)
-          alert("Registration Successfull");
+          alert("Registration Successfull,");
           navigate("/index")
          }
        } else {
