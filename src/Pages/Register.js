@@ -220,6 +220,7 @@ const handleSubmit = (event) => {
            pr='4.5rem'
            type={showPassword ? 'text' : 'password'}
            placeholder='Enter password'
+           onChange={(event) => setPassword(event.target.value)}
          />
          <InputRightElement right='11%' top='8%'>
             {/* <Button h='1.75rem' size='sm' onClick={handleTogglePasswordVisibility}>
@@ -240,6 +241,7 @@ const handleSubmit = (event) => {
           required
           onChange={(event) => setRefer(event.target.value)}
           value={refer}
+          contentEditable={false}
         />
         <button id="register" onClick={handleSubmit}>
           Register
