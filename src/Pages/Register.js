@@ -241,7 +241,7 @@ const handleSubmit = (event) => {
           required
           onChange={(event) => setRefer(event.target.value)}
           value={refer}
-          contentEditable={false}
+          readOnly={true}
         />
         <button id="register" onClick={handleSubmit}>
           Register
